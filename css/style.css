@@ -113,11 +113,7 @@ span {
   transition: background 0.5s;
 }
 
-@media (max-width: 768px) {
-  .back-to-top {
-    bottom: 15px;
-  }
-}
+
 
 .back-to-top:focus {
   background: #ec816c;
@@ -141,13 +137,12 @@ span {
   z-index: 3;
   transition: all 0.5s ease;
   display: flex;
+  justify-content: center;
+
 }
 
 #header img {
   width: 150px;
-}
-
-#header #logo {
 }
 
 #header #logo h1 {
@@ -174,6 +169,7 @@ span {
   padding: 0;
   margin: 0;
 }
+
 
 .nav-menu, .nav-menu * {
   margin: 0;
@@ -231,11 +227,6 @@ span {
   position: relative;
 }
 
-@media (min-width: 1025px) {
-  #hero {
-    background-attachment: fixed;
-  }
-}
 
 #hero .hero-container {
   padding-top: 85px;
@@ -261,26 +252,11 @@ span {
   color:  #ec816c;
 }
 
-@media (max-width: 768px) {
-  #hero h1 {
-    font-size: 28px;
-    line-height: 36px;
-  }
-}
-
 #hero h2 {
   color: #ec816c;
   margin-bottom: 30px;
   font-size: 18px;
   font-weight: 300;
-}
-
-@media (max-width: 768px) {
-  #hero h2 {
-    font-size: 18px;
-    line-height: 24px;
-    margin-bottom: 30px;
-  }
 }
 
 #hero img {
@@ -321,18 +297,9 @@ span {
   margin-block-end: 200px;
 }
 
-@media (max-width: 575px) {
-  #hero .btns a {
-    margin: 4px 8px;
-  }
-}
-
 #hero .btns a:hover {
   color: #ec816c;
 }
-
-
-
 
 .sf-arrows .sf-with-ul {
   padding-right: 22px;
@@ -350,19 +317,6 @@ span {
 .sf-arrows ul .sf-with-ul:after {
   content: "\f105";
 }
-
-
-#nav-menu-container {
-  float: right;
-  margin: 0 0 0 0;
-}
-
-@media (max-width: 1024px) {
-  #nav-menu-container {
-    display: none;
-  }
-}
-
 
 .nav-menu a {
   padding: 8px 8px;
@@ -434,11 +388,7 @@ span {
   font-size: 24px;
 }
 
-@media (max-width: 1024px) {
-  #mobile-nav-toggle {
-    display: inline;
-  }
-}
+
 
 #mobile-nav {
   position: fixed;
@@ -532,22 +482,14 @@ body.mobile-nav-active #mobile-nav-toggle i {
   padding-top: 80px;
 }
 
-@media (max-width: 992px) {
-  .padd-section {
-    padding-top: 40px;
-    padding-bottom: 40px;
-  }
+
 }
 
 .section-title {
   margin-bottom: 80px;
 }
 
-@media (max-width: 992px) {
-  .section-title {
-    margin-bottom: 40px;
-  }
-}
+
 
 .section-title h2 {
   font-size: 45px;
@@ -586,11 +528,7 @@ body.mobile-nav-active #mobile-nav-toggle i {
   transition: all 0.5s ease-in-out 0s;
 }
 
-@media (max-width: 991px) {
-  .inicio .feature-block {
-    margin-bottom: 30px;
-  }
-}
+
 
 .inicio .feature-block:hover {
   box-shadow: 0 0 35px rgba(0, 0, 0, 0.1);
@@ -897,11 +835,7 @@ body.mobile-nav-active #mobile-nav-toggle i {
 
 
 
-@media (max-width: 991px) {
-  #blog .block-blog {
-    margin-bottom: 30px;
-  }
-}
+
 
 #blog .block-blog img {
   width: 100%;
@@ -980,13 +914,6 @@ body.mobile-nav-active #mobile-nav-toggle i {
   background: #fff;
 }
 
-@media (max-width: 575px) {
-  #newsletter .form-control {
-    margin-bottom: 30px;
-    width: 100%;
-  }
-}
-
 #newsletter .form-control:focus {
   border-color: #ec816c;
   box-shadow: none;
@@ -1002,11 +929,7 @@ body.mobile-nav-active #mobile-nav-toggle i {
   transition: 0.3s;
 }
 
-@media (max-width: 575px) {
-  #newsletter .btn {
-    width: 100%;
-  }
-}
+
 
 #newsletter .btn:hover {
   background: #ec816c;
@@ -1148,8 +1071,6 @@ body.mobile-nav-active #mobile-nav-toggle i {
   
 }
 
-
-
 .footer {
   background: #ec816c;
   padding-top: 50px;
@@ -1159,5 +1080,71 @@ body.mobile-nav-active #mobile-nav-toggle i {
   margin-left: 450px;
   width: 200px;
   height: 200px ;
+}
+
+
+@media (max-width:1200px){
+  .inicio .feature-block {
+    padding: 30px 05px;
+}
+  #features .feature-block {
+    padding: 60px 4px; 
+}
+}
+
+@media (max-width: 1023px) {
+  #nav-menu-container {
+   display: none;
+  }
+  #mobile-nav-toggle {
+    display: inline;
+  }
+}
+
+@media (max-width: 992px) {
+  .padd-section {
+    padding-top: 40px;
+    padding-bottom: 40px;
+  }
+  .section-title {
+    margin-bottom: 40px;
+  }
+}
+
+@media (max-width: 991px) {
+  .inicio .feature-block {
+    margin-bottom: 30px;
+  }
+  #blog .block-blog {
+    margin-bottom: 30px;
+  }
+}
+
+@media (max-width: 768px) {
+  .back-to-top {
+    bottom: 15px;
+  }
+  #hero h1 {
+    font-size: 28px;
+    line-height: 36px;
+  }
+  #hero h2 {
+    font-size: 18px;
+    line-height: 24px;
+    margin-bottom: 30px;
+  }
+}
+
+@media (max-width: 575px) {
+  #hero .btns a {
+    margin: 4px 8px;
+  }
+  #newsletter .form-control {
+    margin-bottom: 30px;
+    width: 100%;
+  }
+  #newsletter .btn {
+    width: 100%;
+  }
 }
 
