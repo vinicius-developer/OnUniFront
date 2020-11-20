@@ -29,54 +29,44 @@
 </head>
 
 <body>
-
-	<header id="header" class="header header-hide">
+	<!--========================== Nav-bar e logo ============================-->
+	<header class="nav-bar">
 		<div class="container">
-
-			<div id="logo" class="pull-left">
-				<h1><a href="#hero" class="scrollto">
-						<img src="img/logo/logo.svg" alt="">
+			<div class="pull-left">
+				<img class="logo" src="img/logo/logo.svg" alt="">
 			</div>
-
-			<nav id="nav-menu-container" style="margin-top: 32px;">
-				<ul class="nav-menu" style="margin-right: 150px;">
+			<nav class="nav-menu-container">
+				<ul class="nav-menu">
 					<li><a href="#inicio" style="margin-right: 15px;">O Projeto</a></li>
 					<li><a href="#features" style="margin-right: 15px;">Causas</a></li>
 					<li><a href="#galery" style="margin-right: 15px;">Wallpapers</a></li>
 					<li><a href="#blog" style="margin-right: 15px;">Artigos</a></li>
 					<li><a href="#contato" style="margin-right: 15px;">Contato</a></li>
-					<li style="color: #A4DBC7;">_____</li>
-
-					</li>
-					<li><a href="login/login.html">Entrar</a></li>
-					<li><a href="intermediário/escolha.html">Cadastrar</a></li>
+					<div class="cad-log-buttons">
+						<li><a href="login/login.html">Entrar</a></li>
+						<li><a href="intermediário/escolha.html">Cadastrar</a></li>
+					</div>
 				</ul>
 			</nav>
 		</div>
 	</header>
-
-	<!--==========================
-  TOPO
-  ============================-->
-	<section id="hero" class="wow fadeIn">
-		<div class="hero-container">
+	<!--========================== Titulo e Sub ============================-->
+	<section class="home-page-tit" class="wow fadeIn">
+		<div class="home-page-tit-container">
 			<h1>OnUni</h1><br>
-			<h2 style="font-size: 26px;">Ajudando você a ajudar outras <br> pessoas</h2>
+			<div class="home-page-sub-tit">Ajudando você a ajudar outras pessoas</div>
 			<img src="img/hero/imagemTresPessoas.svg" alt="imagem">
-			<!-- <a href="#inicio" class="btn-get-started scrollto">Início</a> -->
 		</div>
 	</section>
-	<!--==========================
-    inicio 
-  ============================-->
+	<!--========================== Quem Somos ============================-->
 	<section class=" background-inicio inicio padd-section text-center wow fadeInUp" id="inicio">
 
 		<div class="container">
 			<div class="section-title text-center">
-
 				<h2 style="color: #ec816c; font-size: 58px;"><b>Quem Somos</b> </h2>
 			</div>
 		</div>
+
 
 		<div class="container">
 			<div class="row">
@@ -84,7 +74,7 @@
 				<div class="col-md-6 col-lg-4">
 					<div class="feature-block">
 
-						<img src="img/inicio/imagemMeninaBlack.svg" alt="img" class="img-fluid">
+						<img src="img/inicio/imagemMeninaBlack.svg" alt="img" class="img-card">
 						<h4>Proa</h4>
 						<p>Somos fruto de uma instituição que acreditou em nós!</p>
 						<a href="https://www.proa.org.br/" target="blank">Saiba Mais</a>
@@ -95,7 +85,7 @@
 				<div class="col-md-6 col-lg-4">
 					<div class="feature-block">
 
-						<img src="img/inicio/imagemMeninaDread.svg" alt="img" class="img-fluid">
+						<img src="img/inicio/imagemMeninaDread.svg" alt="img" class="img-card">
 						<h4>Objetivos da Onu</h4>
 						<p>Foi a partir da ODS 17 que identificamos nossa meta! Colaborar com a sociedade!</p>
 						<a href="http://www.agenda2030.org.br/ods/17/" target="blank">Saiba Mais</a>
@@ -106,7 +96,7 @@
 				<div class="col-md-6 col-lg-4">
 					<div class="feature-block">
 
-						<img src="img/inicio/vetorSenhor.svg" alt="img" class="img-fluid">
+						<img src="img/inicio/vetorSenhor.svg" alt="img" class="img-card">
 						<h4>Ligando Ongs a pessoas</h4>
 						<p>Sonhamos em criar uma grande rede solidária! Ajude Também!</p>
 						<a href="OnUni.pdf" target="blank">Saiba Mais</a>
@@ -116,13 +106,10 @@
 
 			</div>
 		</div>
-
 	</section>
 
-	<!--==========================
-    inicio Section
-  ============================-->
-	<section class="inicio padd-section wow fadeInUp">
+	<!--========================== Aprensentação ============================-->
+	<div class="inicio padd-section wow fadeInUp">
 		<div class="container">
 			<div class="row justify-content-center">
 
@@ -132,7 +119,6 @@
 
 				<div class="col-md-7 col-lg-5">
 					<div class="about-content">
-
 						<h2><span>OnUni</span>Faça parte dessa equipe</h2>
 						<p style="color: #505050;"><i class="fa fa-angle-right"> A </i> <b>OnUni</b> foi criada para
 							ligar ongs e pessoas que tem vontade de fazer a diferença. <br> Acessando nossa a lista de
@@ -146,12 +132,8 @@
 
 			</div>
 		</div>
-	</section>
-
-	<!--==========================
-    CAUSAS
-  ============================-->
-
+	</div>
+	<!--========================== Causas ============================-->
 	<section id="features" class="padd-section text-center wow fadeInUp">
 
 		<div class="container">
@@ -167,7 +149,7 @@
 
 				<div class="col-md-6 col-lg-3">
 					<div class="feature-block">
-						<img src="img/features/Arvore.svg" alt="img" class="img-fluid">
+						<img src="img/features/Arvore.svg" alt="img" class="img-card">
 						<h4>Proteção Ambiental</h4>
 						<p>Conserve o meio ambiente e toda a sua riqueza <br>Faça parte!</p>
 					</div>
@@ -175,7 +157,7 @@
 
 				<div class="col-md-6 col-lg-3">
 					<div class="feature-block">
-						<img src="img/features/lápis.png" alt="img" class="img-fluid">
+						<img src="img/features/lápis.png" alt="img" class="img-card">
 						<h4>Educação Infantil</h4>
 						<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry</p>
 					</div>
@@ -183,7 +165,7 @@
 
 				<div class="col-md-6 col-lg-3">
 					<div class="feature-block">
-						<img src="img/features/medicina.png" alt="img" class="img-fluid">
+						<img src="img/features/medicina.png" alt="img" class="img-card">
 						<h4>Tratamento médico</h4>
 						<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry</p>
 					</div>
@@ -191,7 +173,7 @@
 
 				<div class="col-md-6 col-lg-3">
 					<div class="feature-block">
-						<img src="img/features/cachorro.png" alt="img" class="img-fluid">
+						<img src="img/features/cachorro.png" alt="img" class="img-card">
 						<h4>Proteção Animal</h4>
 						<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry</p>
 					</div>
@@ -199,7 +181,7 @@
 
 				<div class="col-md-6 col-lg-3">
 					<div class="feature-block">
-						<img src="img/features/casa.png" alt="img" class="img-fluid">
+						<img src="img/features/casa.png" alt="img" class="img-card">
 						<h4>Casa solidária</h4>
 						<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry</p>
 					</div>
@@ -207,7 +189,7 @@
 
 				<div class="col-md-6 col-lg-3">
 					<div class="feature-block">
-						<img src="img/features/refugiados.png" alt="img" class="img-fluid">
+						<img src="img/features/refugiados.png" alt="img" class="img-card">
 						<h4>Refugiados</h4>
 						<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry</p>
 					</div>
@@ -215,7 +197,7 @@
 
 				<div class="col-md-6 col-lg-3">
 					<div class="feature-block">
-						<img src="img/features/comida.png" alt="img" class="img-fluid">
+						<img src="img/features/comida.png" alt="img" class="img-card">
 						<h4>Doação de alimentos</h4>
 						<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry</p>
 					</div>
@@ -223,7 +205,7 @@
 
 				<div class="col-md-6 col-lg-3">
 					<div class="feature-block">
-						<img src="img/features/woman.png" alt="img" class="img-fluid">
+						<img src="img/features/woman.png" alt="img" class="img-card">
 						<h4>Violência doméstica</h4>
 						<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry</p>
 					</div>
@@ -232,11 +214,8 @@
 			</div>
 		</div>
 	</section>
-
-	<!--==========================
-    walppapers 
-  ============================-->
-	<section id="galery" class="padd-section text-center wow fadeInUp">
+	<!--========================== Carrosel ============================-->
+	<div id="galery" class="padd-section text-center wow fadeInUp">
 
 		<div class="container">
 			<div class="section-title text-center">
@@ -257,15 +236,11 @@
 				<div><img src="img/galery/savanaCeu.jpg" alt="img" width="210" height="455"></div>
 			</div>
 		</div>
-	</section>
-
-	<!--==========================
-    Vídeo 
-  ============================-->
-
+	</div>
+	<!--========================== Vídeo ============================-->
 	<section id="video" class="text-center wow fadeInUp">
 		<div class="overlay">
-			<div class="container-fluid container-full">
+			<div class="container-fluid">
 				<div class="row">
 					<iframe width="590" height="400" src="https://www.youtube.com/embed/MyGiJRWZ_90" frameborder="0"
 						allow="accelerometer; autoplay; clipboard-write; encrypted-media;" allowfullscreen;
@@ -274,41 +249,48 @@
 			</div>
 		</div>
 	</section>
-
-
-	<!--==========================
-    ARTIGOS
-  ============================-->
+	<!--========================== Artigos Blog ============================-->
 	<section id="blog" class="padd-section wow fadeInUp">
-
 		<div class="container">
 			<div class="section-title text-center">
-
 				<h2>Histórias de Sucesso</h2>
 				<p class="separator">Ações transformadoras.</p>
-
 			</div>
 		</div>
-
 		<div class="container">
 			<div class="row">
-
 				<div class="col-md-6 col-lg-4">
 					<div class="block-blog text-left">
-						<a href="https://www.vans.com.br/?gclid=CjwKCAiAqJn9BRB0EiwAJ1SztdXm_urGdcdZcNDvmFRS5tSTc_WOQzrsXZO75uNjQzoxZjogITqAtBoCUfsQAvD_BwE"
-							target="blank"><img src="img/blog/noticiaVans.png" class="img-responsive" alt="img"></a>
 						<div class="content-blog">
-							<h4><a href="https://razoesparaacreditar.com/vans-doa-instituicoes-trabalham-saude-mental/"
-									target="blank">Vans doará US$ 1 milhão para instituições que trabalham com saúde
-									mental</a></h4>
+							<div class="card-blog">
+
+								<img src="img/blog/noticiaVans.png" alt="img">
+								<h4>
+									<span>Vans doará US$ 1 milhão para instituições que trabalham com saúde
+										mental
+									</span>
+								</h4>
+								<span class="date">06, novembro 2020</span>
+								<a href="https://www.vans.com.br/?gclid=CjwKCAiAqJn9BRB0EiwAJ1SztdXm_urGdcdZcNDvmFRS5tSTc_WOQzrsXZO75uNjQzoxZjogITqAtBoCUfsQAvD_BwE"
+									target="blank">Saiba Mais</a>
+
+							</div>
+							<!--<a href="https://www.vans.com.br/?gclid=CjwKCAiAqJn9BRB0EiwAJ1SztdXm_urGdcdZcNDvmFRS5tSTc_WOQzrsXZO75uNjQzoxZjogITqAtBoCUfsQAvD_BwE"
+								target="blank"><img src="img/blog/noticiaVans.png" class="img-responsive" alt="img">
+								<h4>
+									<span>Vans doará US$ 1 milhão para instituições que trabalham com saúde
+										mental
+									</span>
+								</h4>
+							</a>
 							<span>06, novembro 2020</span>
 							<a class="pull-right readmore"
-								href="https://razoesparaacreditar.com/vans-doa-instituicoes-trabalham-saude-mental/"
-								target="blank">Leia Mais</a>
+								href="https://razoesparaacreditar.com/vans-doa-instituicoes-trabalham-saude-mental/" target="blank">
+								Leia Mais
+							</a>-->
 						</div>
 					</div>
 				</div>
-
 				<div class="col-md-6 col-lg-4">
 					<div class="block-blog text-left">
 						<a href="https://news.un.org/pt/tags/programa-mundial-de-alimentos" target="blank"><img
@@ -318,19 +300,20 @@
 									da Paz 2020 vai para o maior programa contra a fome do mundo</a></h4>
 							<span>14, outubro 2020</span>
 							<a class="pull-right readmore" href="https://razoesparaacreditar.com/nobel-da-paz-onu/"
-								target="blank">Leia Mais</a>
+								target="blank">
+								Leia Mais
+							</a>
 						</div>
 					</div>
 				</div>
-
-
 				<div class="col-md-6 col-lg-4">
 					<div class="block-blog text-left">
 						<a href="https://portal.ufpa.br/index.php/ultimas-noticias2/11439-novo-projeto-do-time-enactus-ufpa-conquista-reconhecimento-nacional"
 							target="blank"><img src="img/blog/estudantesPa.jpg" class="img-responsive" alt="img"></a>
 						<div class="content-blog">
 							<h4><a href="https://razoesparaacreditar.com/estudantes-para-ecobarreiras/"
-									target="blank">Estudantes do PA criam ecobarreira que impede plástico de chegar ao
+									target="blank">Estudantes do
+									PA criam ecobarreira que impede plástico de chegar ao
 									oceano e são finalistas em prêmio mundial</a></h4>
 							<span>11, setembro 2020</span>
 							<a class="pull-right readmore"
@@ -343,11 +326,7 @@
 			</div>
 		</div>
 	</section>
-
-	<!--==========================
-    FRASES
-  ============================-->
-
+	<!--========================== Frases ============================-->
 	<section id="testimonials" class="padd-section text-center wow fadeInUp">
 		<div class="container">
 			<div class="row justify-content-center">
@@ -403,10 +382,7 @@
 			</div>
 		</div>
 	</section>
-
-	<!--==========================
-    INSCREVA-SE
-  ============================-->
+	<!--========================== Inscrição para Noticias ============================-->
 	<section id="newsletter" class="newsletter text-center wow fadeInUp">
 		<div class="overlay padd-section">
 			<div class="container">
@@ -416,8 +392,7 @@
 						<form class="form-inline" method="POST" action="script">
 
 							<input type="email" class="form-control " placeholder="Digite seu Email" name="email">
-							<button type="submit" class="btn btn-default"><i
-									class="fa fa-location-arrow"></i>Inscreva-se</button>
+							<button type="submit" class="btn"><i class="fa fa-location-arrow"></i>Inscreva-se</button>
 
 						</form>
 
@@ -435,24 +410,17 @@
 			</div>
 		</div>
 	</section>
-
-	<!--==========================
-    Contato 
-  ============================-->
+	<!--========================== Contato ============================-->
 	<section id="contato" class="padd-section wow fadeInUp">
-
 		<div class="container">
 			<div class="section-title text-center">
 				<h2>Contato</h2>
 				<p class="separator">Entre em contato conosco</p>
 			</div>
 		</div>
-
 		<div class="container">
 			<div class="row justify-content-center">
-
 				<div class="col-lg-3 col-md-4">
-
 					<div class="info">
 						<div>
 							<i class="fa fa-map-marker"></i>
@@ -469,7 +437,6 @@
 							<p>+55 (11) 2745 57895</p>
 						</div>
 					</div>
-
 					<div class="social-links">
 						<a href="#" class="twitter"><i class="fa fa-twitter"></i></a>
 						<a href="#" class="facebook"><i class="fa fa-facebook"></i></a>
@@ -477,9 +444,7 @@
 						<a href="#" class="google-plus"><i class="fa fa-google-plus"></i></a>
 						<a href="#" class="linkedin"><i class="fa fa-linkedin"></i></a>
 					</div>
-
 				</div>
-
 				<div class="col-lg-5 col-md-8">
 					<div class="form">
 						<div id="sendmessage">Sua mensagem foi enviada. Obrigada!</div>
@@ -505,7 +470,7 @@
 									data-msg="Nos mande uma mensagem" placeholder="Mensagem"></textarea>
 								<div class="validation"></div>
 							</div>
-							<div class="text-center"><button type="button" class="btn btn-warning"
+							<div class="text-center"><button type="button" class="btn"
 									style="color: #ffffff; background-color: #ec816c; margin-left: 230px;">Mande sua
 									mensagem</button></div>
 						</form>
@@ -514,10 +479,7 @@
 			</div>
 		</div>
 	</section>
-
-	<!--==========================
-    Footer
-  ============================-->
+	<!--========================== Footer ============================-->
 	<footer class="footer">
 		<div class="container">
 			<div class="row">
@@ -529,16 +491,9 @@
 
 					</div>
 				</div>
-
-
-
 	</footer>
-
-
-
 	<a href="#inicio" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
-
-
+	<!--========================== Scripts ============================-->
 	<script src="lib/jquery/jquery.min.js"></script>
 	<script src="lib/jquery/jquery-migrate.min.js"></script>
 	<script src="lib/bootstrap/js/bootstrap.bundle.min.js"></script>
