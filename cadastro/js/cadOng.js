@@ -19,8 +19,6 @@ document.getElementById('cadastrar').addEventListener('click', (e) => {
     options['mode'] = "cors";
     options['headers'] = {
         'Content-Type': 'application/json',
-        'Access-Control-Allow-Headers': '*',
-        'Access-Control-Allow-Origin': '*' ,
     };
     options['body'] = JSON.stringify(data);
 
