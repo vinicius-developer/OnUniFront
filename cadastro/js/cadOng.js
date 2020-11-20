@@ -17,14 +17,15 @@ document.getElementById('cadastrar').addEventListener('click', (e) => {
 
     options['method'] = 'POST';
     options['mode'] = "cors";
-    options['headers'] = {
-        'Content-Type': 'application/json',
-    };
+    // options['headers'] = {
+    //     'Content-Type': 'application/json',
+    //     'Access-Control-Allow-Origin': '*'
+    // };
     options['body'] = JSON.stringify(data);
 
 
     async function sendRegisterOng(options) {
-        const response = await fetch("https://onuniapi.herokuapp.com/api/ong/auth/register", options)
+        const response = await fetch("http://127.0.0.1:8001/api/ong/auth/register", options)
 
         return response.json
     }
