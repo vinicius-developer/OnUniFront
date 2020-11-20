@@ -66,7 +66,9 @@ a:hover {
     padding-top: 36px;
     padding-left: 45px;
     padding-right: 45px;
-    grid-area: form; }
+    grid-area: form; 
+    overflow-y: inherit;
+  }
   .inner h3 {
     text-transform: uppercase;
     font-size: 25px;
@@ -88,7 +90,7 @@ a:hover {
 .form-group {
   display: flex; }
   .form-group input {
-    width: 50%; }
+    width: 46%; }
     .form-group input:first-child {
       margin-right: 25px; }
       
@@ -96,7 +98,7 @@ a:hover {
 .form-wrapper-double {
   display: flex; }
   .form-wrapper-double input {
-    width: 50%; }
+    width: 46%; }
     .form-wrapper-double input:first-child {
       margin-right: 25px; }
 
@@ -214,4 +216,8 @@ button {
       
     }
 
-
+.img-logo {
+  width: 100%;
+  height: 100%;
+  margin: auto;
+}
