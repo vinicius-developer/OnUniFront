@@ -116,17 +116,35 @@ jQuery(document).ready(function ($) {
     loop: true,
     margin: 30,
     dots: true,
+    nav: true,
+    navText: ['<i class="fa fa-angle-left" aria-hidden="true"></i>', '<i class="fa fa-angle-right" aria-hidden="true"></i>'],
     responsiveClass: true,
     responsive: {
       320: {
         items: 1,
         nav: false
       },
-      480: { items: 2 },
-      600: { items: 2 },
-      767: { items: 3 },
-      768: { items: 3 },
-      992: { items: 4 }
+      480: {
+        items: 2,
+        nav: true
+      },
+      600: {
+        items: 2,
+        nav: true
+      },
+      800: {
+        items: 2,
+        nav: true
+      },
+      1000: {
+        items: 3,
+        nav: true
+      },
+      1320: {
+        items: 4,
+        nav: true,
+      }
+
     }
   });
 
