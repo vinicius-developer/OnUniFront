@@ -514,8 +514,16 @@ body.mobile-nav-active #mobile-nav-toggle i {
 }
 
 .owl-theme .owl-nav {
-  display: none;
+  display: show;
   margin-top: 10px;
+}
+
+.owl-next:hover{
+  background: #ec816c !important;
+}
+
+.owl-prev:hover{
+  background: #ec816c !important;
 }
 
 .owl-theme .owl-dots .owl-dot.active span, .owl-theme .owl-dots .owl-dot:hover span {
@@ -943,20 +951,20 @@ body.mobile-nav-active #mobile-nav-toggle i {
 }
 
 .card-blog {
-  padding: 0 0 0 0 !important; 
-  width: 350px;
-  height: 300px;
+  width: 340px;
+  height: 315px;
+  box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.2), 0 0 4px 0 rgba(0, 0, 0, 0.19);
 }
 
 .card-blog > img{
-  width: 300px;
-  margin-left: -10px;
+  width: 340px;
+  height: 180px;
 }
 
-.card-blog > h4{
-  width: 330px;
-  text-align: center;
-  margin-top: 10px;
+.card-blog-text{
+  padding: 10px;
+  width: 340px;
+  height: 135px;
 }
 
 .date{
@@ -965,8 +973,14 @@ body.mobile-nav-active #mobile-nav-toggle i {
 }
 
 .card-blog a{
-  margin-left: 75px;
+  float: right;
 }
+
+.card-blog:hover{
+  box-shadow: 0 0 35px rgba(0, 0, 0, 0.1);
+  transition: all 0.5s ease-in-out 0s;
+}
+
 
 @media (max-width:1200px) {
   .inicio .feature-block {
