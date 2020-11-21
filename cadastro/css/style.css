@@ -11,17 +11,20 @@
 
 body {
   font-family: "Poppins-Regular";
-  color:#ec816c;
+  color:#00442d;
   font-size: 13px;
   margin: 0; }
 
 input, textarea, select, button {
   font-family: "Poppins-Regular";
-  color:#ec816c;
+  color:#00442d;
   font-size: 13px; }
 
 p, h1, h2, h3, h4, h5, h6, ul {
-  margin: 0; }
+  margin: 0; 
+  color: #ec816c
+}
+
 
 img {
   max-width: 100%; }
@@ -47,13 +50,16 @@ a:hover {
   padding: 20px;
   background: #fff;
   max-width: 850px;
+  min-width: 100px;
+  width: 80%;
   margin: auto;
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr;
+  grid-template-columns: 100%;
+  grid-template-rows: 20% 80%;
   gap: 0px 0px;
   grid-template-areas:
-    "img form";
+    "img"
+    "form";
   overflow: auto; 
   height: 535px;
   border-radius: 5px;}
@@ -62,12 +68,13 @@ a:hover {
     position: fixed;
     grid-area: img;}
   .inner form {
-    width: 412.5px;
+    width: 500.5px;
     padding-top: 36px;
     padding-left: 45px;
     padding-right: 45px;
+    margin: auto;
     grid-area: form; 
-    overflow-y: inherit;
+    overflow-y: auto;
   }
   .inner h3 {
     text-transform: uppercase;
@@ -87,23 +94,31 @@ a:hover {
       border-radius: 5px;
     }
 
-.form-group {
-  display: flex; }
-  .form-group input {
-    width: 46%; }
-    .form-group input:first-child {
-      margin-right: 25px; }
-      
-      
 .form-wrapper-double {
   display: flex; }
   .form-wrapper-double input {
-    width: 46%; }
-    .form-wrapper-double input:first-child {
-      margin-right: 25px; }
+    width: 100%; }
 
 .form-wrapper select{
   background-color: white;
+}
+
+.box-inputs {
+  width: 100%;
+  position: relative;
+}
+.box-inputs:first-child {
+  margin-right: 25px;
+}
+
+.box-inputs label {
+  font-size: 15px;
+}
+
+.message-error {
+  width: 100%;
+  height: 80px;
+  color: red;
 }
 
 .form-wrapper {
@@ -122,7 +137,7 @@ a:hover {
   width: 100%;
   height: 30px;
   padding: 0;
-  margin-bottom: 25px; }
+  }
   .form-control::-webkit-input-placeholder {
     font-size: 13px;
     color: #ec816c;
@@ -149,14 +164,13 @@ select {
     display: none; }
 
 button {
-  margin-left: 200px;
   background-color: #ec816c;
   color: #fff;
-  border-radius: 15px;
-  border-color: #fff;
+  width: 120px;
+  border-radius: 5px;
+  border: none;
   font-size: 15px;
-  margin-top: 25px;
-  margin-bottom: 25px;
+  margin: 25px auto;
 }
   
 @-webkit-keyframes hvr-icon-wobble-horizontal {
@@ -217,7 +231,12 @@ button {
     }
 
 .img-logo {
-  width: 100%;
-  height: 100%;
+  width: 14%;
   margin: auto;
+}
+
+#descricao {
+  resize: none;
+  width: 100%; 
+  border: 1px solid black;
 }

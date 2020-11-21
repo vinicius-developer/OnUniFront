@@ -11,102 +11,169 @@
 
 <body>
 
-	<div class="wrapper" style="background-image: url('images/Fundo.jpg'); background: rgba(0, 0, 0, 0.856, 0.815); height: 100%;">
+	<div class="wrapper"
+		style="background-image: url('images/Fundo.jpg'); background: rgba(0, 0, 0, 0.856, 0.815); height: 100%;">
 		<div class="inner">
 			<img src="images/logoicone.svg" alt="imagem" class="img-logo">
 			<form action="" id="form">
 				<h3>Cadastrar</h3>
-
 				<div class="form-wrapper">
-					<input type="text" placeholder="CNPJ" class="form-control" id="cnpj">
-				</div>
-
-				<div class="form-wrapper">
-					<input type="email" placeholder="Email" class="form-control" id="email">
-				</div>
-
-				<div class="form-wrapper">
-					<select id="causasSociais" class="form-control" id="causa_social">
-						<option value="1">Proteção Ambiental</option>
-						<option value="11">Educação Infantil</option>
-						<option value="21">Tratamento Médico</option>
-						<option value="31">Proteção Animal</option>
-						<option value="41">Casa Solidária</option>
-						<option value="51">Refugiados</option>
-						<option value="61">Doação de Alimentos</option>
-						<option value="71">Violência Doméstica</option>
-						<option value="81">Outros</option>
-					</select>
-				</div>
-
-				<div class="form-group">
-					<input type="text" placeholder="Nome Fantasia"  class="form-control" id="nome_fantasia">
-					<input type="text" placeholder="Razão Social"  class="form-control" id="razao_social">
-				</div>
-
-				<div class="form-wrapper-double">
-					<input type="text" placeholder="Telefone 1" class="form-control telefones">
-					<input type="text" placeholder="Telefone 2" class="form-control telefones">
-				</div>
-
-				<div class="form-wrapper-double">
-					<input type="password" placeholder="Senha" class="form-control" id="password" >
-					<input type="password" placeholder="Confirme a Senha" class="form-control" id="password_confimation">
+					<div class="box-inputs">
+						<label for="cnpj">CNPJ: *</label>
+						<input type="text" class="form-control" id="cnpj">
+						<div class="message-error"></div>
+					</div>
 				</div>
 
 				<div class="form-wrapper">
-					<input type="text" placeholder="Rua/Avenida" class="form-control" id="rua">
+					<div class="box-inputs">
+						<label for="email">E-mail: *</label>
+						<input type="email" class="form-control" id="email">
+						<div class="message-error"></div>
+					</div>
+				</div>
+
+				<div class="form-wrapper">
+					<div class="box-inputs">
+						<label for="causa_social">Causa Social: </label>
+						<select class="form-control" id="causa_social">
+							<option value="1">Proteção Ambiental</option>
+							<option value="11">Educação Infantil</option>
+							<option value="21">Tratamento Médico</option>
+							<option value="31">Proteção Animal</option>
+							<option value="41">Casa Solidária</option>
+							<option value="51">Refugiados</option>
+							<option value="61">Doação de Alimentos</option>
+							<option value="71">Violência Doméstica</option>
+							<option value="81">Outros</option>
+						</select>
+						<div class="message-error"></div>
+					</div>
 				</div>
 
 				<div class="form-wrapper-double">
-					<input type="text" placeholder="Cep" class="form-control" id="cep">
-					<input type="text" placeholder="Numero" class="form-control" id="numero">
+					<div class="box-inputs">
+						<label for="nome_fantasia">Nome Fantasia: *</label>
+						<input type="text" class="form-control" id="nome_fantasia">
+						<div class="message-error"></div>
+					</div>
+					<div class="box-inputs">
+						<label for="razao_social">Razão Social: *</label>
+						<input type="text" class="form-control" id="razao_social">
+						<div class="message-error"></div>
+					</div>
 				</div>
 
 				<div class="form-wrapper-double">
-					<input type="text" placeholder="Complemento" class="form-control" id="complemento">
-					<input type="text" placeholder="Bairro" class="form-control" id="bairro">
+					<div class="box-inputs">
+						<label for="">Telefone 1: *</label>
+						<input type="text" class="form-control telefones">
+						<div class="message-error"></div>
+					</div>
+					<div class="box-inputs">
+						<label for="">Telefone 2: *</label>
+						<input type="text" class="form-control telefones">
+						<div class="message-error"></div>
+					</div>
 				</div>
-				
+
 				<div class="form-wrapper-double">
-					<input type="text" placeholder="Cidade" class="form-control" id="cidade">
-					<select name="uf" id="uf" class="form-control" style="background-color: #ffffff;">
-						<option value="1">AC</option>
-						<option value="11">AL</option>
-						<option value="21">AP</option>
-						<option value="31">AM</option>
-						<option value="41">BA</option>
-						<option value="51">CE</option>
-						<option value="61">DF</option>
-						<option value="71">DF</option>
-						<option value="81">GO</option>
-						<option value="91">MA</option>
-						<option value="101">MT</option>
-						<option value="111">MS</option>
-						<option value="121">MG</option>
-						<option value="131">PA</option>
-						<option value="141">PB</option>
-						<option value="151">PR</option>
-						<option value="161">PE</option>
-						<option value="171">PI</option>
-						<option value="181">RJ</option>
-						<option value="191">RN</option>
-						<option value="201">RS</option>
-						<option value="211">RO</option>
-						<option value="221">RR</option>
-						<option value="231">SC</option>
-						<option value="241">SP</option>
-						<option value="251">SE</option>
-						<option value="261">TO</option>
-					</select>
+					<div class="box-inputs">
+						<label for="password">Senha: *</label>
+						<input type="password" class="form-control" id="password">
+						<div class="message-error"></div>
+					</div>
+					<div class="box-inputs">
+						<label for="password_confirmation">Confirmação de Senha: *</label>
+						<input type="password" class="form-control" id="password_confirmation">
+						<div class="message-error"></div>
+					</div>
 				</div>
-				
-				<label for="descricao">Descrição da Ong</label> <br>
-				<textarea style="resize: none; width: 322.5px;" name="descricao" id="descricao" cols="42" rows="4"></textarea>
-				
+
+				<div class="form-wrapper">
+					<div class="box-inputs">
+						<label for="rua">Rua/Avenida: *</label>
+						<input type="text" class="form-control" id="rua">
+						<div class="message-error"></div>
+					</div>
+				</div>
+
+				<div class="form-wrapper-double">
+					<div class="box-inputs">
+						<label for="cep">CEP: *</label>
+						<input type="text" class="form-control" id="cep">
+						<div class="message-error"></div>
+					</div>
+					<div class="box-inputs">
+						<label for="numero">Numero: *</label>
+						<input type="text" class="form-control" id="numero">
+						<div class="message-error"></div>
+					</div>
+				</div>
+
+				<div class="form-wrapper-double">
+					<div class="box-inputs">
+						<label for="complemento">Complemento:</label>
+						<input type="text" class="form-control" id="complemento">
+						<div class="message-error"></div>
+					</div>
+					<div class="box-inputs">
+						<label for="bairro">Bairro: *</label>
+						<input type="text" class="form-control" id="bairro">
+						<div class="message-error"></div>
+					</div>
+				</div>
+
+				<div class="form-wrapper-double">
+					<div class="box-inputs">
+						<label for="cidade">Cidade: *</label>
+						<input type="text" class="form-control" id="cidade">
+						<div class="message-error"></div>
+					</div>
+					<div class="box-inputs">
+						<label for="uf">UF:</label>
+						<select name="uf" id="uf" class="form-control" style="background-color: #ffffff;">
+							<option value="1">AC</option>
+							<option value="11">AL</option>
+							<option value="21">AP</option>
+							<option value="31">AM</option>
+							<option value="41">BA</option>
+							<option value="51">CE</option>
+							<option value="61">DF</option>
+							<option value="71">DF</option>
+							<option value="81">GO</option>
+							<option value="91">MA</option>
+							<option value="101">MT</option>
+							<option value="111">MS</option>
+							<option value="121">MG</option>
+							<option value="131">PA</option>
+							<option value="141">PB</option>
+							<option value="151">PR</option>
+							<option value="161">PE</option>
+							<option value="171">PI</option>
+							<option value="181">RJ</option>
+							<option value="191">RN</option>
+							<option value="201">RS</option>
+							<option value="211">RO</option>
+							<option value="221">RR</option>
+							<option value="231">SC</option>
+							<option value="241">SP</option>
+							<option value="251">SE</option>
+							<option value="261">TO</option>
+						</select>
+						<div class="message-error"></div>
+					</div>
+				</div>
+
+				<div class="box-inputs">
+					<label for="descricao">Descrição: *</label>
+					<textarea name="descricao" id="descricao" cols="42" rows="4"></textarea>
+					<div class="message-error"></div>
+				</div>
+
 				<button id="cadastrar">Cadastrar
 					<i class="zmdi zmdi-arrow-right"></i>
-				</button>	
+				</button>
 			</form>
 		</div>
 	</div>
