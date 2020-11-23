@@ -4,7 +4,7 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Cadastro</title>
+	<title>Cadastro Ong</title>
 	<link rel="stylesheet" href="fonts/material-design-iconic-font/css/material-design-iconic-font.min.css">
 	<link rel="stylesheet" href="css/style.css">
 </head>
@@ -13,7 +13,7 @@
 	<div class="wrapper"
 		style="background-image: url('images/Fundo.jpg'); background: rgba(0, 0, 0, 0.856, 0.815); height: 100%;">
 		<div class="inner">
-			<img src="images/logoicone.svg" alt="imagem" class="img-logo">
+			<a href="../index.html"><img src="images/logoicone.svg" alt="imagem" class="img-logo"></a>
 			<form action="" id="form">
 				<h3>Cadastrar</h3>
 				<div class="form-wrapper">
@@ -203,7 +203,8 @@
 			data['telefones'] = []
 
 			for (let i = 0; i < elementsForm.length - 1; i++) {
-				if (elementsForm[i].id !== '') data[elementsForm[i].id] = elementsForm[i].value
+				if (elementsForm[i].id !== '' && elementsForm.id != 'telUm' && elementsForm.id != 'telDois') 
+					data[elementsForm[i].id] = elementsForm[i].value
 			}
 
 			for (let i = 0; i < telefones.length; i++) {
@@ -214,7 +215,6 @@
 				const response = await axios.post('http://127.0.0.1:8000/api/ong/auth/register', body, header)
 					.then(response => {
 						const message = response.data.message
-						console.log(message)
 						success(message)
 					})
 					.catch(error => {
@@ -222,7 +222,6 @@
 						clear(error, prefix)
 						alertErrors(error)
 					})
-				return response
 			}
 
 			send(data, header)

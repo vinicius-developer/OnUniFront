@@ -16,7 +16,6 @@ function mask(id, mask) {
 function alertErrors(error) {
     const campos = Object.keys(error.response.data.errors)
     const messages = Object.values(error.response.data.errors)
-
     for (let i = 0; i < campos.length; i++) {
         if (campos[i] !== 'telefones') {
             const elementos = document.getElementById(campos[i]).nextElementSibling
@@ -36,9 +35,7 @@ function clear(error, prefix) {
     }
     for (let i = 0; i < prefix.length; i++) {
         const element = document.getElementById(prefix[i]).nextElementSibling.firstChild
-        if (element != null) {
-            element.remove()
-        }
+        if (element != null) element.remove()
     }
 }
 
