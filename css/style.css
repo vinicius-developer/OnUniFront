@@ -68,8 +68,12 @@ span {
   align-content: center;
 }
 
-.nav-bar .logo {
+.logo{
   width: 150px;
+}
+
+.logo-nav-bar{
+  float: left;
 }
 
 .nav-menu-container {
@@ -989,16 +993,26 @@ body.mobile-nav-active #mobile-nav-toggle i {
   #features .feature-block {
     padding: 60px 4px;
   }
+  .nav-menu{
+    margin-left: 85px  
+  }
 }
 
-@media (max-width: 1023px) {
+@media (max-width: 1024px) {
   #nav-menu-container {
-    display: none;
+    display: show;
   }
   #mobile-nav-toggle {
     display: inline;
   }
 }
+
+@media (max-width: 1023px) {
+  .nav-menu{
+    display: none;
+  }
+}
+
 
 @media (max-width: 992px) {
   .padd-section {
