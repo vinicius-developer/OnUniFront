@@ -10,7 +10,6 @@
 </head>
 
 <body>
-
 	<div class="wrapper"
 		style="background-image: url('images/Fundo.jpg'); background: rgba(0, 0, 0, 0.856, 0.815); height: 100%;">
 		<div class="inner">
@@ -20,7 +19,7 @@
 				<div class="form-wrapper">
 					<div class="box-inputs">
 						<label for="cnpj">CNPJ: *</label>
-						<input type="text" class="form-control" id="cnpj">
+						<input type="text" class="form-control" id="cnpj" >
 						<div class="message-error"></div>
 					</div>
 				</div>
@@ -37,6 +36,7 @@
 					<div class="box-inputs">
 						<label for="causa_social">Causa Social: </label>
 						<select class="form-control" id="causa_social">
+							<option value="" disabled selected>Escolha</option>
 							<option value="1">Proteção Ambiental</option>
 							<option value="11">Educação Infantil</option>
 							<option value="21">Tratamento Médico</option>
@@ -67,12 +67,12 @@
 				<div class="form-wrapper-double">
 					<div class="box-inputs">
 						<label for="">Telefone 1: </label>
-						<input type="text" class="form-control telefones">
+						<input type="text" class="form-control telefones" id="telUm">
 						<div class="message-error"></div>
 					</div>
 					<div class="box-inputs">
 						<label for="">Telefone 2: </label>
-						<input type="text" class="form-control telefones">
+						<input type="text" class="form-control telefones" id="telDois">
 						<div class="message-error"></div>
 					</div>
 				</div>
@@ -101,7 +101,7 @@
 				<div class="form-wrapper-double">
 					<div class="box-inputs">
 						<label for="cep">CEP: *</label>
-						<input type="text" class="form-control" id="cep">
+						<input type="text" class="form-control" id="cep" max="9">
 						<div class="message-error"></div>
 					</div>
 					<div class="box-inputs">
@@ -133,6 +133,7 @@
 					<div class="box-inputs">
 						<label for="uf">UF:</label>
 						<select name="uf" id="uf" class="form-control" style="background-color: #ffffff;">
+							<option value="" disabled selected>Escolha</option>
 							<option value="1">AC</option>
 							<option value="11">AL</option>
 							<option value="21">AP</option>
@@ -177,8 +178,56 @@
 			</form>
 		</div>
 	</div>
+	<script src="../node_modules/vanilla-masker/build/vanilla-masker.min.js"></script>
 	<script src="../node_modules/axios/dist/axios.js"></script>
-	<script src="js/cadOng.js"></script>
+	<script src="js/cad.js"></script>
+	<script>
+		const cnpjDocMask = ['99.999.999/9999-99', '99.999.999/9999-99'];
+		const telDocMask = ['(99) 99999-9999', '(99) 9999-99999']
+		const cepDocMaks = ['99999-999', '99999-999']
+
+		mask('#cnpj', cnpjDocMask)
+		mask('#telUm', telDocMask)
+		mask('#telDois', telDocMask)
+		mask('#cep', cepDocMaks)
+
+		document.getElementById('cadastrar').addEventListener('click', (e) => {
+			e.preventDefault();
+
+			const elementsForm = document.getElementById('form').elements
+			const telefones = document.getElementsByClassName('telefones');
+			const data = {}
+			const header = {
+				'Content-Type': 'application/json'
+			}
+			data['telefones'] = []
+
+			for (let i = 0; i < elementsForm.length - 1; i++) {
+				if (elementsForm[i].id !== '') data[elementsForm[i].id] = elementsForm[i].value
+			}
+
+			for (let i = 0; i < telefones.length; i++) {
+				if (telefones[i].value) data.telefones[i] = telefones[i].value
+			}
+
+			async function send(body, header) {
+				const response = await axios.post('http://127.0.0.1:8000/api/ong/auth/register', body, header)
+					.then(response => {
+						const message = response.data.message
+						console.log(message)
+						success(message)
+					})
+					.catch(error => {
+						const prefix = ['cnpj', 'email', 'nome_fantasia', 'razao_social', 'password', 'rua', 'cep', 'numero', 'bairro', 'cidade', 'descricao', 'causa_social', 'uf']
+						clear(error, prefix)
+						alertErrors(error)
+					})
+				return response
+			}
+
+			send(data, header)
+		})
+	</script>
 </body>
 
 </html>

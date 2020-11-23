@@ -15,61 +15,103 @@
 </head>
 
 <body>
-
 	<div class="wrapper"
 		style="background-image: url('images/Fundo.jpg'); background: rgba(0, 0, 0, 0.856, 0.815); height: 100%;">
 		<div class="inner">
-			<div class="image-holder">
-				<img src="images/logoicone.svg" alt="imagem" style="margin-top: 140px; margin-left: 50px;">
-			</div>
-			<form action="">
+			<img src="images/logoicone.svg" alt="imagem" class="img-logo">
+			<form action="" id="form">
 				<h3>Cadastrar</h3>
-				<div class="form-group">
-					<input type="text" placeholder="Primeiro Nome" class="form-control">
-					<input type="text" placeholder="Último Nome" class="form-control">
-				</div>
 				<div class="form-wrapper">
-					<input type="text" placeholder="CPF" class="form-control">
-				</div>
-				<div class="form-wrapper-double">
-					<input type="text" placeholder="Telefone 1" class="form-control">
-					<input type="text" placeholder="Telefone 2" class="form-control">
-				</div>
-				<div class="form-wrapper">
-					<select name="genero" id="genero" class="form-control">
-						<option value="" disabled selected>Gênero</option>
-						<option value="male">Feminino</option>
-						<option value="femal">Masculino</option>
-						<option value="other">Não Binário</option>
-						<option value="other">Intersexual</option>
-						<option value="other">Outro</option>
-						<option value="other">Prefiro não dizer</option>
-					</select>
-					<i class="zmdi zmdi-caret-down" style="font-size: 17px"></i>
-				</div>
-				<div class="form-wrapper">
-					<input type="text" placeholder="Email" class="form-control">
-					<i class="zmdi zmdi-email"></i>
-				</div>
-				<div class="form-wrapper">
-					<input type="text" placeholder="Confirme seu Email" class="form-control">
-					<i class="zmdi zmdi-email"></i>
-				</div>
-				<div class="form-wrapper">
-					<input type="password" placeholder="Senha" class="form-control">
-					<i class="zmdi zmdi-lock"></i>
-				</div>
-				<div class="form-wrapper">
-					<input type="password" placeholder="Confirme sua Senha" class="form-control">
-					<i class="zmdi zmdi-lock"></i>
+					<div class="box-inputs">
+						<label for="nome">Nome: *</label>
+						<input type="text" class="form-control" id="nome" >
+						<div class="message-error"></div>
+					</div>
 				</div>
 
-				<button>Cadastrar
+				<div class="form-wrapper">
+					<div class="box-inputs">
+						<label for="sobrenome">Sobrenome: *</label>
+						<input type="text" class="form-control" id="sobrenome">
+						<div class="message-error"></div>
+					</div>
+				</div>
+
+				<div class="form-wrapper">
+					<div class="box-inputs">
+						<label for="cpf">CPF: *</label>
+						<input type="text" class="form-control" id="cpf">
+						<div class="message-error"></div>
+					</div>
+				</div>	
+
+				<div class="form-wrapper">
+					<div class="box-inputs">
+						<label for="genero">Gênero: </label>
+						<select name="genero" id="genero" class="form-control">
+							<option value="" disabled selected>Escolha</option>
+							<option value="1">Feminino</option>
+							<option value="11">Masculino</option>
+							<option value="21">Não Binário</option>
+							<option value="31">Intersexual</option>
+							<option value="41">Outro</option>
+							<option value="51">Prefiro não dizer</option>
+						</select>
+						<div class="message-error"></div>
+					</div>
+				</div>
+
+				<div class="form-wrapper-double">
+					<div class="box-inputs">
+						<label for="">Telefone 1: </label>
+						<input type="text" class="form-control telefones" id="telUm">
+						<div class="message-error"></div>
+					</div>
+					<div class="box-inputs">
+						<label for="">Telefone 2: </label>
+						<input type="text" class="form-control telefones" id="telDois">
+						<div class="message-error"></div>
+					</div>
+				</div>
+
+				<div class="form-wrapper">
+					<div class="box-inputs">
+						<label for="email">E-mail: *</label>
+						<input type="text" class="form-control" id="email">
+						<div class="message-error"></div>
+					</div>
+				</div>
+
+				<div class="form-wrapper-double">
+					<div class="box-inputs">
+						<label for="password">Senha: *</label>
+						<input type="password" class="form-control" id="password">
+						<div class="message-error"></div>
+					</div>
+					<div class="box-inputs">
+						<label for="password_confirmation">Confirmação de Senha: *</label>
+						<input type="password" class="form-control" id="password_confirmation">
+						<div class="message-error"></div>
+					</div>
+				</div>
+
+				<button id="cadastrar">Cadastrar
 					<i class="zmdi zmdi-arrow-right"></i>
 				</button>
 			</form>
 		</div>
 	</div>
+	<script src="../node_modules/vanilla-masker/build/vanilla-masker.min.js"></script>
+	<script src="../node_modules/axios/dist/axios.js"></script>
+	<script src="js/cad.js"></script>
+	<script>
+		const telDocMask = ['(99) 99999-9999', '(99) 9999-99999']
+		const cpfDocMask = ['999.999.999-99', '999.999.999-99']
+
+		mask('#telUm', telDocMask)
+		mask('#telDois', telDocMask)
+		mask('#cpf', cpfDocMask)
+	</script>
 
 </body>
 

@@ -75,6 +75,7 @@ a:hover {
     margin: auto;
     grid-area: form; 
     overflow-y: auto;
+    transition: .5s;
   }
   .inner h3 {
     text-transform: uppercase;
@@ -239,4 +240,17 @@ button {
   resize: none;
   width: 100%; 
   border: 1px solid black;
+}
+
+.desapear {
+  visibility: hidden;
+  display: none;
+  
+}
+
+.centralize{
+  text-align: center;
+  display: flex;
+  align-items: center;
+  padding: 0 10px
 }
