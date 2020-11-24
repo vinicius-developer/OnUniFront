@@ -34,8 +34,10 @@ function clear(error, prefix) {
         prefix.splice(campo, 1)
     }
     for (let i = 0; i < prefix.length; i++) {
-        const element = document.getElementById(prefix[i]).nextElementSibling.firstChild
-        if (element != null) element.remove()
+        if(prefix[i] !== 'telefones') {
+            const element = document.getElementById(prefix[i]).nextElementSibling.firstChild
+            if (element != null) element.remove()
+        }
     }
 }
 

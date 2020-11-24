@@ -52,7 +52,6 @@
             data['userkey'] = userkey
             data['password'] = password
 
-
             async function send(body, header) {
                 if (data['userkey'].length === 18) {
                     await axios.post('http://127.0.0.1:8000/api/ong/auth/login', data, header)
