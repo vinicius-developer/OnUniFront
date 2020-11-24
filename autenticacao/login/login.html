@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <div class="wrapper"
+        style="background-image: url(teste.jpg); background: rgba(0, 0, 0, 0.856, 0.815); height: 100%;">
+        <div class="inner">
+            <a href="../../index.html"><img src="../images/logoicone.svg" alt="imagem" class="img-logo"></a>
+            <form action="" id="form">
+                <h3>Entrar</h3>
+                <div class="form-wrapper">
+                    <div class="box-inputs">
+                        <label for="userkey">CPF/CNPJ:</label>
+                        <input type="text" class="form-control" id="userkey">
+                        <div class="message-error"></div>
+                    </div>
+                </div>
+                <div class="form-wrapper">
+                    <div class="box-inputs">
+                        <label for="senha">Senha:</label>
+                        <input type="password" class="form-control" id="password">
+                        <div class="message-error"></div>
+                    </div>
+                </div>
+                <div class="form-wrapper" style="display:flex; justify-content:center">
+                    <button id="cadastrar">Cadastrar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <script src="../../node_modules/axios/dist/axios.js"></script>
+    <script src="../../node_modules/vanilla-masker/lib/vanilla-masker.js"></script>
+    <script src="../js/cad.js"></script>
+    <script>
+        const userDocMask = ['999.999.999-99', '99.999.999/9999-99']
+        mask('#userkey', userDocMask)
+        document.getElementById('cadastrar').addEventListener('click', (e) => {
+            e.preventDefault()
+
+            const userkey = document.getElementById('userkey').value
+            const password = document.getElementById('password').value
+            const data = {}
+            const header = {
+                "Content-Type": "application/json"
+            }
+
+            data['userkey'] = userkey
+            data['password'] = password
+
+
+            async function send(body, header) {
+                if (data['userkey'].length === 18) {
+                    await axios.post('http://127.0.0.1:8000/api/ong/auth/login', data, header)
+                        .then(response => {
+                            localStorage.setItem('token', response.data.access_token)
+                            window.location.assign('http://127.0.0.1:8001/')
+                        })
+                        .catch(error => {
+                            configError(error)
+                        })
+                } else if(data['userkey'].length === 14){
+                    await axios.post('http://127.0.0.1:8000/api/doador/auth/login', data, header)
+                        .then(response => {
+                            localStorage.setItem('token', response.data.access_token)
+                            window.location.assign('http://127.0.0.1:8001/')
+                        })
+                        .catch(error => {
+                            configError(error)
+                        })
+                } else {
+                   userKeyError = document.getElementById('userkey').nextElementSibling
+                   if(userKeyError.firstChild != null) userKeyError.firstChild.remove()
+                   userKeyError.innerHTML = "<p>Texto inserido não corresponde a CNPJ nem CPF</p>"
+                }
+            }
+
+            function configError(error) {
+                const prefix = ["userkey", "password"]
+                clear(error, prefix)
+                alertErrors(error)
+            }
+
+            send(data, header)
+
+        })
+
+    </script>
+</body>
+
+</html>

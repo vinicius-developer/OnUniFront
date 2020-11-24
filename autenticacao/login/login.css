@@ -21,13 +21,13 @@ a {
     transition:all .4s;
     -webkit-transition:all .4s;
     -o-transition:all .4s;
-    -moz-transition:all .4s}
+    -moz-transition:all .4s
+}
 
 a:focus {
     outline:none!important
 }
 
-}
 
 ul,li {
     margin:0;
