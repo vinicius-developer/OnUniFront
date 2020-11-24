@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script src="../../node_modules/axios/dist/axios.js"></script>
+    <script>
+        const url = window.location.href
+        const id = url.split('=').slice(1, 2)
+        async function activate(id) {
+            await axios.put(`http://127.0.0.1:8000/api/ong/auth/activate/${id}`)
+                .then(response => window.location.href = '../login/login.html')
+                .catch(error => alert('tivemos um problema em nosso sistema por favor entre em contato: onunicontato@gmail.com'))
+
+            // await axios.put(`https://onuniapi.herokuapp.com/api/ong/auth/activate/${id}`)
+            //     .then(response => window.location.href = '../login/login.html')
+            //     .catch(error => alert('tivemos um problema em nosso sistema por favor entre em contato: onunicontato@gmail.com'))
+        }
+        activate(id)
+    </script>
+</body>
+</html>
