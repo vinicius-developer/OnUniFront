@@ -192,7 +192,6 @@ span {
 
 .home-page-tit img {
   width: 1000px;
-  margin-left: 47px;
 }
 
 .img-card {
@@ -538,11 +537,16 @@ body.mobile-nav-active #mobile-nav-toggle i {
   background: #ddd;
 }
 
+.carousel-image{
+  width: 210px;
+  height: 455px;
+}
+
 #video {
   background: url(../img/Fundo.jpg) center center;
   background-repeat: no-repeat;
   background-size: cover;
-  height: 400px;
+  
   overflow: hidden;
 }
 
@@ -948,8 +952,13 @@ body.mobile-nav-active #mobile-nav-toggle i {
   padding-top: 50px;
 }
 
+.footer-logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 #logofundo {
-  margin-left: 450px;
   width: 200px;
   height: 200px;
 }
@@ -985,6 +994,21 @@ body.mobile-nav-active #mobile-nav-toggle i {
   transition: all 0.5s ease-in-out 0s;
 }
 
+.text-center button{
+  border: 1px solid #fff;
+  border-radius: 50px;
+  color: #fff;
+  font-size: 11px;
+  font-weight: 600;
+  padding: 15px 40px;
+  text-transform: uppercase;
+  -moz-transition: all 0.5s ease-in-out 0s;
+  -ms-transition: all 0.5s ease-in-out 0s;
+  -o-transition: all 0.5s ease-in-out 0s;
+  -webkit-transition: all 0.5s ease-in-out 0s;
+  transition: all 0.5s ease-in-out 0s;
+}
+
 @media (max-width:1200px) {
   .inicio .feature-block {
     padding: 30px 05px;
@@ -992,23 +1016,36 @@ body.mobile-nav-active #mobile-nav-toggle i {
   #features .feature-block {
     padding: 60px 4px;
   }
-  .nav-menu {
-    margin-left: 85px
+  #nav-menu-container {
+    margin-left: -20px;
   }
 }
 
-@media (max-width: 1024px) {
-  #nav-menu-container {
-    display: show;
+@media (max-width:1199px) {
+  .card-blog {
+    width: 300px;
+    height: 340px;
   }
-  #mobile-nav-toggle {
-    display: inline;
+  .card-blog>img {
+    width: 300px;
+    height: 180px;
+  }
+  .card-blog-text {
+    padding: 5px;
+    width: 300px;
+    height: 135px;
   }
 }
 
 @media (max-width: 1023px) {
   .nav-menu {
     display: none;
+  }
+  #nav-menu-container {
+    display: show;
+  }
+  #mobile-nav-toggle {
+    display: inline;
   }
 }
 
@@ -1029,6 +1066,20 @@ body.mobile-nav-active #mobile-nav-toggle i {
   #blog .block-blog {
     margin-bottom: 30px;
   }
+  .card-blog {
+    width: 340px;
+    height: 315px;
+    margin-top: 20px;
+  }
+  .card-blog>img {
+    width: 340px;
+    height: 180px;
+  }
+  .card-blog-text {
+    padding: 10px;
+    width: 340px;
+    height: 135px;
+  }
 }
 
 @media (max-width: 768px) {
@@ -1036,13 +1087,16 @@ body.mobile-nav-active #mobile-nav-toggle i {
     bottom: 15px;
   }
   .home-page-tit h1 {
-    font-size: 28px;
+    font-size: 60px;
     line-height: 36px;
   }
   .home-page-tit h2 {
-    font-size: 18px;
     line-height: 24px;
     margin-bottom: 30px;
+  }
+  .home-page-tit img {
+    width: 100%;
+    margin-left: 0px;
   }
 }
 
@@ -1059,3 +1113,11 @@ body.mobile-nav-active #mobile-nav-toggle i {
   }
 }
 
+@media (max-width: 425px) {
+  .home-page-tit {
+    height: 460px;
+}
+.home-page-tit .home-page-sub-tit { 
+  width: auto;
+}
+}
