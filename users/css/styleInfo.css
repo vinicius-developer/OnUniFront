@@ -1,0 +1,22 @@
+.box-content-ong{
+    padding-top: 120px;
+    margin: 0 auto;
+    width: 1000px;
+    min-height: 1000px;
+}
+
+.box-one {
+    width: 70%;
+    height: 500px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.box-potho-ong {
+    width: 60%;
+    height: 100%;
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-position: center;
+}
+

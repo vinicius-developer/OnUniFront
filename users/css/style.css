@@ -26,13 +26,13 @@ body {
 
 main {
     width: 100%; 
-    min-height: 1100px;
 }
 
 header {
     background-color: #7BB29B;
     position: fixed;
     height: 100px;
+    z-index: 99999;
 }
 
 .box-info-header {
@@ -75,74 +75,9 @@ header {
     color: #fff;
 }
 
-.list-style {
-    width: 1000px;
-    margin: 0 auto;
-    padding-top: 120px;
-}
+.style-fixed-ong{
+    padding-top: 125px;
 
-.list-style h1 {
-    margin: 40px 0;
-}
-
-.item-list {
-    width: 100%;
-    height: 500px;
-    display: flex;
-    background-color: rgb(236, 236, 236);
-    -webkit-box-shadow: 5px 3px 22px 0px rgba(49, 50, 50, 0.36);
-    -moz-box-shadow:    5px 3px 22px 0px rgba(49, 50, 50, 0.36);
-    box-shadow:         5px 3px 22px 0px rgba(49, 50, 50, 0.36);;
-}
-
-.box-potho-ong {
-    width: 50%;
-    height: 100%;
-    background-repeat: no-repeat;
-    background-size: 100%;
-    background-position: center;
-}
-
-.box-content-ong {
-    width: 50%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-}
-
-.box-content-ong h2 {
-    margin: 0;
-    font-size: 22px;
-}
-
-.box-content-ong h1 {
-    font-size: 50px;
-}
-
-.box-content-ong p {
-    word-wrap: break-word;
-}
-
-.box-content-ong div button {
-   width: 150px; 
-}
-
-.box-paginate {
-    display: flex;
-    justify-content: center;
-}
-
-.box-paginate button {
-    padding: 10px;
-    border-radius: 30px;
-    width: 45px;
-    background-color: #7BB29B;
-    color: #ffffff;
-    font-weight: bold;
-    border: none;
-    cursor: pointer;
-    margin: 0 5px ;
 }
 
 footer {
@@ -153,11 +88,3 @@ footer {
     align-items: center;
     justify-content: center;
 }
-
-
-
-
-
-
-
-

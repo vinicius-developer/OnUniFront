@@ -4,23 +4,30 @@ const headers = {
     'Authorization': `Bearer ${localStorage.token}`
 }
 
-async function listOngs(url, headers, page = '1') {
+async function listOngs(url, headers, page = 1) {
     await axios.get(url + "?page=" + page, { headers })
         .then(response => {
-            console.log(response)
             clear()
             createDisplay(response.data)
             buttonNext = document.getElementById('next')
-            if(response.data.next_page_url !== undefined) {
-                buttonNext.value = response.data.next_page_url.split('=').slice(1, 2)
-            } else {
-                buttonNext.style.display = "none"
+            buttonLast = document.getElementById('last')
+
+            if (page >= 1 && page <= response.data.last_page) {
+                buttonNext.value = parseInt(page) + 1
+                buttonLast.value = parseInt(page) - 1
             }
 
-            buttonLast = document.getElementById('last')
-            buttonLast.value = buttonNext.value - 1
-            console.log(buttonNext, buttonLast)
+            if(page < response.data.last_page){
+                buttonNext.style.display = 'block' 
+            } else {
+                buttonNext.style.display = 'none' 
+            }
 
+            if(page > 1){
+                buttonLast.style.display = 'block' 
+            } else {
+                buttonLast.style.display = 'none' 
+            }
         })
         .catch(error => {
             if (error.response.status === 401) {
@@ -34,9 +41,8 @@ async function listOngs(url, headers, page = '1') {
 listOngs(url, headers)
 
 function clear() {
-    
     const list = document.getElementById('list')
-    while(list.firstChild) {
+    while (list.firstChild) {
         list.removeChild(list.lastChild)
     }
 }
@@ -88,8 +94,8 @@ function createDisplay(response) {
         const buttonElement = document.createElement('button')
         const valButton = document.createTextNode('Saber Mais')
         buttonElement.appendChild(valButton)
-        buttonElement.classList = 'btn btn-outline-dark'
-        buttonElement.setAttribute('id', 'info-ong')
+        buttonElement.classList = 'btn btn-outline-dark event'
+        buttonElement.setAttribute('onclick', `infoOng('${ong.id}')`)
         boxButtonElment.appendChild(buttonElement)
         boxButtonElment.classList = 'mb-5 mb-sm-5 mb-lg-5'
 
@@ -118,6 +124,10 @@ document.getElementById('last').addEventListener('click', () => {
     const page = document.getElementById('last').value
     listOngs(url, headers, page)
 })
+
+function infoOng(id) {
+    window.location.href = `infoOng.html?key=${id}`
+}
 
 
 
