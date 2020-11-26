@@ -537,7 +537,7 @@ body.mobile-nav-active #mobile-nav-toggle i {
   background: #ddd;
 }
 
-.carousel-image{
+.carousel-image {
   width: 210px;
   height: 455px;
 }
@@ -546,7 +546,6 @@ body.mobile-nav-active #mobile-nav-toggle i {
   background: url(../img/Fundo.jpg) center center;
   background-repeat: no-repeat;
   background-size: cover;
-  
   overflow: hidden;
 }
 
@@ -990,11 +989,11 @@ body.mobile-nav-active #mobile-nav-toggle i {
 }
 
 .card-blog:hover {
-  box-shadow: 0 0 35px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0 35px rgba(0, 0, 0, 0.267);
   transition: all 0.5s ease-in-out 0s;
 }
 
-.text-center button{
+.text-center button {
   border: 1px solid #fff;
   border-radius: 50px;
   color: #fff;
@@ -1116,8 +1115,52 @@ body.mobile-nav-active #mobile-nav-toggle i {
 @media (max-width: 425px) {
   .home-page-tit {
     height: 460px;
+  }
+  .home-page-tit .home-page-sub-tit {
+    width: auto;
+  }
+  .card-blog {
+    width: 395px;
+    height: auto;
+    margin-top: 20px
+  }
+  .card-blog>img {
+    width: 395px;
+    height: 235px;
+  }
+  .card-blog-text {
+    padding: 10px;
+    width: 395px;
+    height: 135px;
+  }
 }
-.home-page-tit .home-page-sub-tit { 
-  width: auto;
+@media (max-width: 375px) {
+  .card-blog {
+    width: 345px;
+    height: auto;
+    margin-top: 20px
+  }
+  .card-blog>img {
+    width: 345px;
+    height: 235px;
+  }
+  .card-blog-text {
+    width: 345px;
+    height: 135px;
+  }
 }
+@media (max-width: 320px) {
+  .card-blog {
+    width: 290px;
+    height: auto;
+    margin-top: 20px
+  }
+  .card-blog>img {
+    width: 290px;
+    height: 205px;
+  }
+  .card-blog-text {
+    width: 290px;
+    height: 135px;
+  }
 }
