@@ -33,6 +33,10 @@ header {
     position: fixed;
     height: 100px;
     z-index: 99999;
+    -webkit-box-shadow: 5px 3px 22px 0px rgba(49, 50, 50, 0.36);
+    -moz-box-shadow:    5px 3px 22px 0px rgba(49, 50, 50, 0.36);
+    box-shadow:         5px 3px 22px 0px rgba(49, 50, 50, 0.36);
+    margin: 0 25%;
 }
 
 .box-info-header {
@@ -78,6 +82,23 @@ header {
 .style-fixed-ong{
     padding-top: 125px;
 
+}
+
+.box-paginate {
+    display: flex;
+    justify-content: center;
+}
+
+.box-paginate button {
+    padding: 9px;
+    border-radius: 29px;
+    width: 44px;
+    background-color: #6BB29B;
+    color: #ffffff;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    margin: -1 5px ;
 }
 
 footer {

@@ -5,6 +5,8 @@
     min-height: 1000px;
 }
 
+/* BOX-ONE */
+
 .box-one {
     width: 70%;
     height: 500px;
@@ -18,5 +20,102 @@
     background-repeat: no-repeat;
     background-size: 100%;
     background-position: center;
+    -webkit-box-shadow: 5px 3px 22px 0px rgba(49, 50, 50, 0.36);
+    -moz-box-shadow:    5px 3px 22px 0px rgba(49, 50, 50, 0.36);
+    box-shadow:         5px 3px 22px 0px rgba(49, 50, 50, 0.36);
+}
+
+.box-title {
+    position: absolute;
+    right: 0;
+    bottom: 20px;
+    width: 400px;
+    background-color: #7BB29B;
+    padding: 20px;
+    color: #ffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    word-wrap: break-word;
+    -webkit-box-shadow: 5px 3px 22px 0px rgba(49, 50, 50, 0.36);
+    -moz-box-shadow:    5px 3px 22px 0px rgba(49, 50, 50, 0.36);
+    box-shadow:         5px 3px 22px 0px rgba(49, 50, 50, 0.36);
+}
+
+.box-title h1 {
+    font-size: 60px;
+}
+
+/* BOX-TWO */
+
+.box-two {
+    width: 100%;
+    padding-top: 90px;
+    position: relative;
+}
+
+.box-info {
+    position: absolute;
+    top: 0;
+    background-color: #ec816c;
+    -webkit-box-shadow: 5px 3px 22px 0px rgba(49, 50, 50, 0.36);
+    -moz-box-shadow:    5px 3px 22px 0px rgba(49, 50, 50, 0.36);
+    box-shadow:         5px 3px 22px 0px rgba(49, 50, 50, 0.36);
+}
+
+.box-info h2 {
+    color: #ffffff;
+    width: 100%;
+    text-align: center;
+}
+
+.box-descricao {
+    width: 60%;
+    height: 100%;
+    background-color: #7BB29B;
+    -webkit-box-shadow: 5px 3px 22px 0px rgba(49, 50, 50, 0.36);
+    -moz-box-shadow:    5px 3px 22px 0px rgba(49, 50, 50, 0.36);
+    box-shadow:         5px 3px 22px 0px rgba(49, 50, 50, 0.36);
+    margin: 0 20%;
+}
+
+.box-descricao h2 {
+    color: #ffffff;
+    width: 100%;
+    text-align: center;
+}
+
+.box-descricao p {
+    color: #ffffff;
+    font-weight: bold;
+}
+
+/* BOX-THREE */
+
+.box-three {
+    width: 45%;
+    margin: 0 auto;
+    position: relative;
+    margin-bottom: 160px;
+}
+
+.box-end {
+    width: 55%;
+    margin: 0 auto;
+    background-color: #7BB29B;
+    -webkit-box-shadow: 5px 3px 22px 0px rgba(49, 50, 50, 0.36);
+    -moz-box-shadow:    5px 3px 22px 0px rgba(49, 50, 50, 0.36);
+    box-shadow:         5px 3px 22px 0px rgba(49, 50, 50, 0.36);
+}
+
+.box-tel {
+    width: 50%;
+    position: absolute;
+    right: 0;
+    background-color:#ec816c ;
+    bottom: -120px;
+    -webkit-box-shadow: 5px 3px 22px 0px rgba(49, 50, 50, 0.36);
+    -moz-box-shadow:    5px 3px 22px 0px rgba(49, 50, 50, 0.36);
+    box-shadow:         5px 3px 22px 0px rgba(49, 50, 50, 0.36);
 }
 

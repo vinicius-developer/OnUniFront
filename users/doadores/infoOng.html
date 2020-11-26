@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,11 +9,12 @@
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/styleInfo.css">
 </head>
+
 <body>
     <main class="">
         <header class="container-fluid">
             <div class="box-info-header">
-                <div class="box-img">                        
+                <div class="box-img">
                     <img src="../../img/logo/logo.svg" alt="logo da OnUni">
                 </div>
                 <nav class="box-buttons-navbar">
@@ -25,13 +27,50 @@
                         </li>
                         <li class="buttons-nav-bar">
                             <a href="">Sair</a>
-                         </li>
+                        </li>
                     </ul>
                 </nav>
             </div>
         </header>
         <section id="ong-content" class="box-content-ong">
+            <article class="box-one mb-5 mb-sm-5 mb-lg-5">
+                <div class="box-potho-ong">
 
+                </div>
+                <div class="box-title">
+                    <h1></h1>
+                </div>
+            </article>
+            <article class="box-two mb-5">
+                <div class="box-info px-4 py-2">
+                    <h2 class="text-white font-weight-bold">Informações</h2>
+                    <p class="text-white font-weight-bold text-center"></p>
+                    <p class="text-white font-weight-bold text-center"></p>
+                </div>
+                <div class="box-descricao card-body">
+                    <h2 class="card-title font-weight-bold pt-5">Descrição</h2>
+                    <p class="card-text px-5 px-sm-5 px-lg-5 font-weight-bold text-white
+                    text-justify"></p>
+                </div>
+            </article>
+            <article class="box-three">
+                <div class="box-end text-white px-3 pt-2 pb-4">
+                    <h2 class="text-center my-3 font-weight-bold">Endereço</h2>
+                </div>
+                <div class="box-tel pt-3 pb-2">
+                    <h2 class="text-white font-weight-bold text-center ">Telefones</h2>
+                </div>
+            </article>
+            <article class="box-five">
+                <div class="box-list">
+                    <h2>Lista de Necessidades</h2>
+                    <div id="box-items"></div>
+                    <div id="box-paginate" class="box-paginate mb-5">
+                        <button id="last"><</button>
+                        <button id="next">></button>
+                    </div>
+                </div>
+            </article>
         </section>
         <footer>
             <img src="../../img/logo/logo.svg" alt="">
@@ -42,4 +81,5 @@
     <script src="../../node_modules/axios/dist/axios.js"></script>
     <script src="../js/infoOng.js"></script>
 </body>
+
 </html>

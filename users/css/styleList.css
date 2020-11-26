@@ -15,7 +15,7 @@
     background-color: rgb(236, 236, 236);
     -webkit-box-shadow: 5px 3px 22px 0px rgba(49, 50, 50, 0.36);
     -moz-box-shadow:    5px 3px 22px 0px rgba(49, 50, 50, 0.36);
-    box-shadow:         5px 3px 22px 0px rgba(49, 50, 50, 0.36);;
+    box-shadow:         5px 3px 22px 0px rgba(49, 50, 50, 0.36);
 }
 
 .box-potho-ong {
@@ -51,19 +51,3 @@
     width: 150px; 
 }
 
-.box-paginate {
-    display: flex;
-    justify-content: center;
-}
-
-.box-paginate button {
-    padding: 10px;
-    border-radius: 30px;
-    width: 45px;
-    background-color: #7BB29B;
-    color: #ffffff;
-    font-weight: bold;
-    border: none;
-    cursor: pointer;
-    margin: 0 5px ;
-}
