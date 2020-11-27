@@ -1,73 +1,159 @@
-async function requestContentOng(){
-    const key = window.location.href.split('=').slice(1,2)
+const key = window.location.href.split('=').slice(1, 2)
 
+async function requestContentOng(key) {
     const urlOng = `http://127.0.0.1:8000/api/info/users/ong/find/${key}`
-    const urlTel = `http://127.0.0.1:8000/api/info/objects/telephone/list/${key}`
-    const urlEnd = `http://127.0.0.1:8000/api/info/objects/address/list/${key}`
-    const urlList = `http://127.0.0.1:8000/api/ong/wishlist/index/${key}`
-
-    //const urlTel =  `https://onuniapi.herokuapp.com/api/info/objects/telephone/list/${key}`
     //const urlOng =  `https://onuniapi.herokuapp.com/api/info/users/ong/find/${key}`
-    //const urlEnd =  `https://onuniapi.herokuapp.com/api/info/objects/address/list/${key}`
-    //const urlList = `https://onuniapi.herokuapp.com/api/ong/wishlist/index/${key}`
 
-    const headers = {
-        'Authorization': `Bearer ${localStorage.token}`
-    }
-    
-    await axios.get(urlOng, {headers})
+    const headers = defineHeaders()
+
+    await axios.get(urlOng, { headers })
         .then(response => {
             createDisplayOng(response.data)
         })
         .catch(error => {
-            if (error.response.status === 401) {
-                window.location.assign('../../autenticacao/login/login.html')
-            } else if(error.response.status === 400){
-                window.location.assign('listOngs.html')
-            }
+            errorRedirect(error.response.status)
         })
+}
 
-    await axios.get(urlTel, {headers})
+async function requestContentTel(key) {
+    const urlTel = `http://127.0.0.1:8000/api/info/objects/telephone/list/${key}`
+    //const urlTel =  `https://onuniapi.herokuapp.com/api/info/objects/telephone/list/${key}`
+
+    const headers = defineHeaders()
+
+    await axios.get(urlTel, { headers })
         .then(response => {
             createDiplayTel(response.data)
         })
         .catch(error => {
-            if (error.response.status === 401) {
-                window.location.assign('../../autenticacao/login/login.html')
-            } else if(error.response.status === 400){
-                window.location.assign('listOngs.html')
-            }
+            errorRedirect(error.response.status)
         })
+}
 
-    await axios.get(urlEnd, {headers})
+async function requestContentEnd(key) {
+    const urlEnd = `http://127.0.0.1:8000/api/info/objects/address/list/${key}`
+    //const urlEnd =  `https://onuniapi.herokuapp.com/api/info/objects/address/list/${key}`
+
+    const headers = defineHeaders()
+
+    await axios.get(urlEnd, { headers })
         .then(response => {
             createDisplayEnd(response.data)
         })
         .catch(error => {
-            if (error.response.status === 401) {
-                window.location.assign('../../autenticacao/login/login.html')
-            } else if(error.response.status === 400){
-                window.location.assign('listOngs.html')
-            }
+            errorRedirect(error.response.status)
         })
-    
-    await axios.get(urlList, {headers})
+}
+
+async function requestContentList(key, page = 1) {
+    const urlList = `http://127.0.0.1:8000/api/ong/wishlist/index/${key}`
+    //const urlList = `https://onuniapi.herokuapp.com/api/ong/wishlist/index/${key}`
+
+    const headers = defineHeaders() 
+
+
+    await axios.get(`${urlList}?page=${page}`, { headers })
         .then(response => {
-            createDisplayList(response.data)
+            createDisplayList(response.data.data)
+            buttonNext = document.getElementById('next')
+            buttonLast = document.getElementById('last')
+
+            if (page >= 1 && page <= response.data.last_page) {
+                buttonNext.value = parseInt(page) + 1
+                buttonLast.value = parseInt(page) - 1
+            }
+
+            if (page < response.data.last_page) {
+                buttonNext.style.display = 'block'
+            } else {
+                buttonNext.style.display = 'none'
+            }
+
+            if (page > 1) {
+                buttonLast.style.display = 'block'
+            } else {
+                buttonLast.style.display = 'none'
+            }
         })
         .catch(error => {
-            if (error.response.status === 401) {
-                window.location.assign('../../autenticacao/login/login.html')
-            } else if(error.response.status === 400){
-                window.location.assign('listOngs.html')
+            errorRedirect(error.response.status)
+        })
+}
+
+async function requestFollowExists(key) {
+    const urlFollowExists = `http://127.0.0.1:8000/api/actions/follow/find/${key}`
+    //const urlFollowExists = `https://onuniapi.herokuapp.com/api/actions/follow/find/${key}`
+
+    const headers = defineHeaders()
+
+    await axios.get(urlFollowExists, { headers })
+        .then(response => {
+            switchImageFollowButton(response.data.exists)
+        })
+        .catch(error => {
+            errorRedirect(error.response.status)
+        })
+}
+
+async function requestRegisterFollow(key) {
+    const urlRegisterFollow = `http://127.0.0.1:8000/api/actions/follow/switch/${key}`
+    //const urlRegisterFollow = `https://onuniapi.herokuapp'.com/api/actions/follow/switch/${key}`
+
+    const headers = defineHeaders()
+
+    await axios.get(urlRegisterFollow, {headers}) 
+        .then(response => {
+            switchImageFollowButton(response.data.exists)
+        })
+        .catch(error => {
+            errorRedirect(error.response.status)
+        })
+}
+
+async function requestRegisterReport(body) {
+    const urlRegisterReport = `http://127.0.0.1:8000/api/actions/report/register`
+    //const urlRegisterFollow = `https://onuniapi.herokuapp'.com/api/actions/follow/switch/${key}`
+
+    const headers = defineHeaders()
+
+    await axios.post(urlRegisterReport, body, {headers})
+        .then(response => {
+            console.log(response)
+            const modal = document.getElementById('reportModal')
+            modal.classList = 'anulation'
+
+            const item = document.getElementById('openModal')
+            if(response.data.exists) {
+                item.style.backgroundImage = 'url(../img/adendo-preenchido.svg)'
+                item.setAttribute('title', 'Você já reportou essa ong')
             }
         })
-} 
+        .catch(error => {
+            errorRedirect(error.response.status)
+            createDisplayErrorReport(error.response.data.errors)
+        })
+}
+
+async function requestReportExists(key) {
+    const urlReportExists =  `http://127.0.0.1:8000/api/actions/report/findong/${key}`
+    
+    const headers = defineHeaders()
+
+    await axios.get(urlReportExists, {headers})
+        .then(response => {
+            const item = document.getElementById('openModal')
+            if(response.data.exists) {
+                item.style.backgroundImage = 'url(../img/adendo-preenchido.svg)'
+                item.setAttribute('title', 'Você já reportou essa ong')
+            }
+        })
+        .catch(error => {
+            errorRedirect(error.response.status)
+        })
+}
 
 function createDisplayOng(data) {
     const ong = data[0]
-
-    const ongContent = document.getElementById('ong-content')
 
     document.getElementsByClassName('box-potho-ong')[0].style.backgroundImage = `url('http://127.0.0.1:8000/storage/${ong.img}')`
     //document.getElementsByClassName('box-potho-ong')[0].style.backgroundImage = `url('https://onuniapi.herokuapp.com/storage/${ong.img}')`
@@ -91,7 +177,7 @@ function createDiplayTel(data) {
         const boxTelElement = document.getElementsByClassName('box-tel')[0]
 
         const telElement = document.createElement('p')
-        const telText = document.createTextNode(item['numTel']) 
+        const telText = document.createTextNode(item['numTel'])
 
         telElement.appendChild(telText)
         telElement.classList = 'text-white text-center font-weight-bold'
@@ -107,8 +193,8 @@ function createDisplayEnd(data) {
 
     const boxEndElement = document.getElementsByClassName('box-end')[0]
 
-    for(let i = 0; i < keys.length; i++) {
-        if(values[i]) {
+    for (let i = 0; i < keys.length; i++) {
+        if (values[i]) {
             const endElement = document.createElement('p')
             const endText = document.createTextNode(`${keys[i]}: ${values[i]}`)
 
@@ -119,39 +205,126 @@ function createDisplayEnd(data) {
     }
 }
 
-function createDisplayList(data) {
-    const items = data.data
-    items.map((item, ind) => {
+function createDisplayList(item) {
+    if (item.length > 0) {
+        item.map((item) => {
+            const boxItemsElement = document.getElementById('box-items')
 
-        console.log(item)
+            const listElement = document.createElement('ul')
 
-        const boxItemsElement = document.getElementById('list-items')
+            const itemElement = document.createElement('li')
 
-        const itemElement = document.createElement('div')
+            const nameItemsElement = document.createElement('h4')
+            const nameItemsText = document.createTextNode(`${item['nomeItem']}`)
 
-        const nameItemsElement = document.createElement('h4')
-        const nameItemsText = document.createTextNode(`Iten: ${item['nomeItem']}`)
+            nameItemsElement.appendChild(nameItemsText)
 
-        nameItemsElement.appendChild(nameItemsText)
+            const linkLojaElement = document.createElement('a')
+            const textLink = document.createTextNode(`Loja: ${item['nomeFantasiaLoja']}`)
 
-        const linkLojaElement = document.createElement('a')
-        const textLink = document.createTextNode(`Loja: ${item['nomeFantasiaLoja']}`)
-
-        linkLojaElement.setAttribute('href', item['linkLoja'])
-        linkLojaElement.appendChild(textLink)
-
-        itemElement.appendChild(nameItemsElement)
-        itemElement.appendChild(linkLojaElement)
-
-        boxItemsElement.appendChild(itemElement)
+            linkLojaElement.setAttribute('href', item['linkLoja'])
+            linkLojaElement.setAttribute('target', '_blank')
+            linkLojaElement.appendChild(textLink)
+            linkLojaElement.classList = 'font-weight-bold'
 
 
-        console.log(values)
+            itemElement.appendChild(nameItemsElement)
+            itemElement.appendChild(linkLojaElement)
 
-    })
+
+            listElement.appendChild(itemElement)
+            boxItemsElement.appendChild(listElement)
+        })
+    } else {
+        document.getElementById('list').style.display = 'none'
+    }
 }
 
+function createDisplayErrorReport(data) {
+    const keys = Object.keys(data)
+
+    const boxErrorElement = document.getElementById('messageErrorModal')
+
+    const boxTextError = document.createElement('p')
+    console.log(keys)
+    const textError = document.createTextNode(data[keys[0]])
+
+    boxTextError.appendChild(textError)
+    boxTextError.classList = 'text-white mt-2 font-weight-bold'
+
+    boxErrorElement.appendChild(boxTextError)
+}
+
+function clear(items) {
+    while (items.firstChild) {
+        items.removeChild(items.lastChild)
+    }
+}
+
+function switchImageFollowButton(boolean) {
+    if(boolean) {
+        document.getElementById('follow').style.backgroundImage = 'url(../img/balao-de-coracao-preenchido.svg)'
+    } else {
+        document.getElementById('follow').style.backgroundImage = 'url(../img/balao-de-coracao.svg)'
+    }
+}
+
+requestContentOng(key)
+requestContentTel(key)
+requestContentEnd(key)
+requestContentList(key)
+requestFollowExists(key)
+requestReportExists(key)
+
+document.getElementById('next').addEventListener('click', () => {
+    const items = document.getElementById('box-items')
+    clear(items)
+    requestContentList(key, document.getElementById('next').value)
+})
+
+document.getElementById('last').addEventListener('click', () => {
+    const items = document.getElementById('box-items')
+    clear(items)
+    requestContentList(key, document.getElementById('last').value)
+})
+
+document.getElementById('follow').addEventListener('click', () => {
+    requestRegisterFollow(key)
+})
+
+document.getElementById('openModal').addEventListener('click', () => {
+    const modal = document.getElementById('reportModal')
+    modal.classList.remove('anulation')
+})
+
+document.getElementById('closeModal').addEventListener('click', () => {
+    const modal = document.getElementById('reportModal')
+    modal.classList.add('anulation')
+})
+
+document.getElementById('sendReport').addEventListener('click', () => {
+    const boxMessageError = document.getElementById('messageErrorModal')
+    const desc = document.getElementById('explicacao_report').value
+
+    body = {
+        'id_reportado': key[0],
+        'explicacao': desc,
+        'tipo_usuario_reportado': 'ong'
+    }
+
+    clear(boxMessageError)
+    requestRegisterReport(body)
+})
 
 
+function errorRedirect(status) {
+    if (status === 401) {
+        window.location.assign('../../autenticacao/login/login.html')
+    } else if (status === 400) {
+        window.location.assign('listOngs.html')
+    }
+}
 
-requestContentOng()
+function defineHeaders() {
+    return {'Authorization': `Bearer ${localStorage.token}`} 
+}

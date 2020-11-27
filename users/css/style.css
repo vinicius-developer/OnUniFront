@@ -11,10 +11,10 @@ ul {
     list-style: none;
 }
 
-ul a:link,
-ul a:visited,
-ul a:hover,
-ul a:active {
+a:link,
+a:visited,
+a:hover,
+a:active {
     text-decoration: none;
     color: #ffffff;
 
@@ -32,7 +32,7 @@ header {
     background-color: #7BB29B;
     position: fixed;
     height: 100px;
-    z-index: 99999;
+    z-index: 2;
     -webkit-box-shadow: 5px 3px 22px 0px rgba(49, 50, 50, 0.36);
     -moz-box-shadow:    5px 3px 22px 0px rgba(49, 50, 50, 0.36);
     box-shadow:         5px 3px 22px 0px rgba(49, 50, 50, 0.36);
@@ -98,7 +98,7 @@ header {
     font-weight: bold;
     border: none;
     cursor: pointer;
-    margin: -1 5px ;
+    margin: 0 5px ;
 }
 
 footer {
