@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script src="../js/session.js"></script>
+    <script src="../../node_modules/axios/dist/axios.js"></script>
+    <script>
+       async function logout() {
+           await axios.get('http://127.0.0.1:8000/api/ong/auth/logout', {'Authorization': `Bearer ${localStorage.token}`})
+                    .then(response => {
+                        window.location.href = '../../autenticacao/login/login.html'
+                    })
+                    .catch(error => {
+                        window.location.href = '../../autenticacao/login/login.html'
+                    })
+       }
+
+       logout()
+    </script>
+</body>
+</html>

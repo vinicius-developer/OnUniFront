@@ -121,12 +121,8 @@ async function requestRegisterReport(body) {
             console.log(response)
             const modal = document.getElementById('reportModal')
             modal.classList = 'anulation'
-
             const item = document.getElementById('openModal')
-            if(response.data.exists) {
-                item.style.backgroundImage = 'url(../img/adendo-preenchido.svg)'
-                item.setAttribute('title', 'Você já reportou essa ong')
-            }
+            changeReportButton(response.data.exists, item)
         })
         .catch(error => {
             errorRedirect(error.response.status)
@@ -142,10 +138,7 @@ async function requestReportExists(key) {
     await axios.get(urlReportExists, {headers})
         .then(response => {
             const item = document.getElementById('openModal')
-            if(response.data.exists) {
-                item.style.backgroundImage = 'url(../img/adendo-preenchido.svg)'
-                item.setAttribute('title', 'Você já reportou essa ong')
-            }
+            changeReportButton(response.data.exists, item)
         })
         .catch(error => {
             errorRedirect(error.response.status)
@@ -269,6 +262,15 @@ function switchImageFollowButton(boolean) {
     }
 }
 
+function changeReportButton(exists, item) {
+    if(exists) {
+        item.style.backgroundImage = 'url(../img/adendo-preenchido.svg)'
+        item.setAttribute('title', 'Você já reportou essa ong')
+        item.disabled = true
+        item.style.cursor = 'auto'
+    }
+}
+
 requestContentOng(key)
 requestContentTel(key)
 requestContentEnd(key)
@@ -315,7 +317,6 @@ document.getElementById('sendReport').addEventListener('click', () => {
     clear(boxMessageError)
     requestRegisterReport(body)
 })
-
 
 function errorRedirect(status) {
     if (status === 401) {

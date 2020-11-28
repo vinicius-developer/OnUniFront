@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OnUni</title>
+    <link rel="stylesheet" href="../../lib/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/myInfo.css">
+</head>
+
+<body>
+    <main>
+        <header class="container-fluid">
+            <div class="box-info-header">
+                <div class="box-img">
+                    <a href="listOngs.html"><img src="../../img/logo/logo.svg" alt="logo da OnUni"></a>
+                </div>
+                <nav class="box-buttons-navbar">
+                    <ul>
+                        <li class="buttons-nav-bar">
+                            <a href="help.html">Ajuda</a>
+                        </li>
+                        <li class="buttons-nav-bar">
+                            <a href="my.html">Meu Perfil</a>
+                        </li>
+                        <li class="buttons-nav-bar">
+                            <a href="logout.html">Sair</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+        <div class="box-one">
+            <section class="dashboard mb-5">
+                <aside>
+                    <ul>
+                        <li id="myInfo">
+                            Minhas Informações
+                        </li>
+                        <li id="ongFav">
+                            Ongs favoritas
+                        </li>
+                    </ul>
+                </aside>
+                <div id="dashboard-body" class="dashboard-body overflow-auto">
+                </div>
+            </section>
+        </div>
+        <footer>
+            <img src="../../img/logo/logo.svg" alt="">
+        </footer>
+    </main>
+
+    <div id="changePhotoModal" class="anulation change-photo-modal">
+        <div class="box-modal">
+            <div class="box-header-model">
+                <button id="closeModal" onclick="closeModal()">X</button>
+                <h3 class="pt-3">Escolha uma foto</h3>
+            </div>
+            <div class="box-content-model">
+                <label for="photoModal" class="mt-3 label-photo-model"></label>
+                <input id="photoModal"type="file">
+                <p id="messageErrorModal"class="box-message-error mt-2"></p>
+                <button id="sendPhoto" class="mt-3 font-weight-bold text-white">Enviar</button>
+            </div>
+        </div>
+    </div>
+    <script src="../js/session.js"></script>
+    <script src="../../node_modules/axios/dist/axios.js"></script>
+    <script src="../js/myInfoUsr.js"></script>
+</body>
+
+</html>

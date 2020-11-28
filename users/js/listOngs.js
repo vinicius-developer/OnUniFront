@@ -1,10 +1,8 @@
-const url = 'http://127.0.0.1:8000/api/info/users/ong/list'
-//const url = 'https://onuniapi.herokuapp.com/api/info/users/ong/list'
-const headers = {
-    'Authorization': `Bearer ${localStorage.token}`
-}
+async function listOngs(page = 1) {
+    const url = 'http://127.0.0.1:8000/api/info/users/ong/list'
+    //const url = 'https://onuniapi.herokuapp.com/api/info/users/ong/list'
+    const headers = createHeaders()
 
-async function listOngs(url, headers, page = 1) {
     await axios.get(url + "?page=" + page, { headers })
         .then(response => {
             clear()
@@ -17,16 +15,16 @@ async function listOngs(url, headers, page = 1) {
                 buttonLast.value = parseInt(page) - 1
             }
 
-            if(page < response.data.last_page){
-                buttonNext.style.display = 'block' 
+            if (page < response.data.last_page) {
+                buttonNext.style.display = 'block'
             } else {
-                buttonNext.style.display = 'none' 
+                buttonNext.style.display = 'none'
             }
 
-            if(page > 1){
-                buttonLast.style.display = 'block' 
+            if (page > 1) {
+                buttonLast.style.display = 'block'
             } else {
-                buttonLast.style.display = 'none' 
+                buttonLast.style.display = 'none'
             }
         })
         .catch(error => {
@@ -38,7 +36,7 @@ async function listOngs(url, headers, page = 1) {
         })
 }
 
-listOngs(url, headers)
+listOngs()
 
 function clear() {
     const list = document.getElementById('list')
@@ -115,18 +113,22 @@ document.getElementById('next').addEventListener('click', () => {
     document.body.scrollTop = 0; // For Safari
     document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
     const page = document.getElementById('next').value
-    listOngs(url, headers, page)
+    listOngs(page)
 })
 
 document.getElementById('last').addEventListener('click', () => {
     document.body.scrollTop = 0; // For Safari
     document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
     const page = document.getElementById('last').value
-    listOngs(url, headers, page)
+    listOngs(page)
 })
 
 function infoOng(id) {
     window.location.href = `infoOng.html?key=${id}`
+}
+
+function createHeaders() {
+    return {'Authorization': `Bearer ${localStorage.token}`}
 }
 
 
