@@ -198,91 +198,11 @@ footer {
     display: none;
 }
 
-/* MODAL MUDAR FOTO */
-
-.change-photo-modal {
-    width: 100vw;
-    height: 100vh;
-    position: fixed;
-    top: 0;
-    left: 0;
-    background-color: rgba(0,0,0, .5);
-    z-index: 3;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.box-modal {
-    width: 30%;
-    height: 50%;
-    min-width: 322px;
-    min-height: 284px;
-    border-radius: 5px;
+.styleInput {
     background-color: #7BB29B;
-    position: relative;
-    max-height: 370px;
-    min-height: 350px;
-}
-
-.box-header-model button{
-    position: absolute;
-    right: 0; 
-    width: 40px;
-    height: 40px;
-    border-radius: 5px;
-    border:none;
-    cursor:pointer;
-    background-color:  #7BB29B;
-    color: #ffffff;
-}
-
-.box-header-model h3 {
-    text-align: center;
-    color: #ffffff;
-}
-
-.box-content-model {
-    display: flex; 
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-}
-
-input[type='file'] {
-    display: none;
-}
-
-.label-photo-model {
-    background-image: url('../img/upload.svg');
-    background-repeat: no-repeat;
-    border-radius: 5px;
-    cursor: pointer;
-    width: 100px;
-    height: 100px;
-    margin: auto;
-}
-
-.box-message-error {
-    height: 40px;
-    width: 90%;
-    color: red;
-    text-align: center;
-}
-
-.box-content-model button{
-    width: 100px;
-    height: 40px;
-    background-color: #ec816c ;
-    border:none ;
-    cursor: pointer;
-}
-
-.anulation {
-    display: none;
-    visibility: hidden;
-} 
-
-button:focus {
-    outline: none;
+    border: none;
+    border-bottom: 2px solid #ec816c;
+    color: #fff;
+    font-weight: bold;
+    padding: 0 5px;
 }

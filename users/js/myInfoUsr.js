@@ -30,10 +30,7 @@ async function listFavoriteOngs(page = 1) {
             buttonNext = document.getElementById('next')
             buttonLast = document.getElementById('last')
 
-            console.log(response.data[0].last_page)
-
             if (page >= 1 && page <= response.data[0].last_page) {
-                console.log('a')
                 buttonNext.value = parseInt(page) + 1
                 buttonLast.value = parseInt(page) - 1
             }
@@ -60,8 +57,9 @@ async function listFavoriteOngs(page = 1) {
 
 async function changePhotoPerfil(image) {
     const urlChangeImage = 'http://127.0.0.1:8000/api/doador/image/change'
+    //const urlChangeImage = 'https://onuniapi.herokuapp.com/api/doador/image/change'
 
-    const headers =  getHeaders()
+    const headers = getHeaders()
 
     headers['Content-Type'] = 'multipart/form-data'
 
@@ -69,16 +67,15 @@ async function changePhotoPerfil(image) {
 
     formdata.append('photo', image)
 
-    axios.post(urlChangeImage, formdata, {headers})
-        .then(response =>  {
+    axios.post(urlChangeImage, formdata, { headers })
+        .then(response => {
             const item = document.getElementById('dashboard-body')
             document.getElementById('changePhotoModal').classList.add('anulation')
             clear(item)
             myInformation()
         })
         .catch(error => {
-            console.log(error.response)
-            if(error.response.status === 422) {
+            if (error.response.status === 422) {
                 createMessageErrorPhoto(error.response.data.errors.photo)
             } else if (error.response.status === 500) {
                 alert('estamos com problemas em nosso sistema')
@@ -104,7 +101,7 @@ function createDisplayMyInformation(information) {
     const photoElement = document.createElement('div')
     photoElement.style.backgroundImage = `url(http://127.0.0.1:8000/storage/${information['img_perfil']})`
     //photoElement.style.backgroundImage = `url(https://onuniapi.herokuapp.com/storage/${information['img_perfil']})`
-    photoElement.classList = 'img-usr'
+    photoElement.classList = 'img-usr mb-5'
     photoElement.setAttribute('onclick', 'openModal()')
 
     firstRow.appendChild(photoElement)
@@ -153,77 +150,90 @@ function createDisplayMyInformation(information) {
 
 function createDisplayListFavoriteOngs(response) {
     data = response[0].data
-    const item = document.getElementById('dashboard-body')
-    item.style.display = 'block'
 
-    const boxList = document.createElement('div')
-    boxList.classList = 'box-list'
-    item.appendChild(boxList)
+        const item = document.getElementById('dashboard-body')
 
-    console.log(data)
+    if (data.length != 0) {
+        item.style.display = 'block'
+        const boxList = document.createElement('div')
+        boxList.classList = 'box-list'
+        item.appendChild(boxList)
 
-    for (let i = 0; i < data.length; i++) {
-        values = Object.values(data[i])
+        for (let i = 0; i < data.length; i++) {
+            values = Object.values(data[i])
 
-        // BOX ONG
-        const createBoxOngElement = document.createElement('div')
-        createBoxOngElement.classList = 'box-ong-favorite mt-3 p-2'
-        createBoxOngElement.setAttribute('onclick', `infoOng('${data[i]['id_ongs']}')`)
+            // BOX ONG
+            const createBoxOngElement = document.createElement('div')
+            createBoxOngElement.classList = 'box-ong-favorite mt-3 p-2'
+            createBoxOngElement.setAttribute('onclick', `infoOng('${data[i]['id_ongs']}')`)
 
-        boxList.appendChild(createBoxOngElement)
+            boxList.appendChild(createBoxOngElement)
 
-        // BOX IMG
-        const createOngImgElement = document.createElement('div')
-        createOngImgElement.style.backgroundImage = `url(http://127.0.0.1:8000/storage/${data[i]['img_perfil']})`
-        createOngImgElement.classList = 'img-ong-favorite'
+            // BOX IMG
+            const createOngImgElement = document.createElement('div')
+            createOngImgElement.style.backgroundImage = `url(http://127.0.0.1:8000/storage/${data[i]['img_perfil']})`
+            createOngImgElement.classList = 'img-ong-favorite'
 
-        createBoxOngElement.appendChild(createOngImgElement)
+            createBoxOngElement.appendChild(createOngImgElement)
 
-        // TITLE NAME
-        const createNameFatasiaElement = document.createElement('h3')
-        createNameFatasiaElement.classList = 'title-ong-favorite ml-2 font-weight-bold'
+            // TITLE NAME
+            const createNameFatasiaElement = document.createElement('h3')
+            createNameFatasiaElement.classList = 'title-ong-favorite ml-2 font-weight-bold'
 
-        const createTextNameFantasia = document.createTextNode(data[i]['nome_fantasia'])
+            const createTextNameFantasia = document.createTextNode(data[i]['nome_fantasia'])
 
-        createNameFatasiaElement.appendChild(createTextNameFantasia)
+            createNameFatasiaElement.appendChild(createTextNameFantasia)
 
-        createBoxOngElement.appendChild(createNameFatasiaElement)
+            createBoxOngElement.appendChild(createNameFatasiaElement)
 
-        // DESCRICAO
-        const createDescricaoElement = document.createElement('p')
-        createDescricaoElement.classList = "descricao-ong-favorite ml-2 mt-2 font-weight-bold"
+            // DESCRICAO
+            const createDescricaoElement = document.createElement('p')
+            createDescricaoElement.classList = "descricao-ong-favorite ml-2 mt-2 font-weight-bold"
 
-        const createTextDescricao = document.createTextNode(cut(data[i]['descricao_ong']))
+            const createTextDescricao = document.createTextNode(cut(data[i]['descricao_ong']))
 
-        createDescricaoElement.appendChild(createTextDescricao)
+            createDescricaoElement.appendChild(createTextDescricao)
 
-        createBoxOngElement.appendChild(createDescricaoElement)
+            createBoxOngElement.appendChild(createDescricaoElement)
+        }
+
+        // PAGINATE
+
+        const createBoxPaginateElement = document.createElement('div')
+        createBoxPaginateElement.classList = 'box-paginate mt-3'
+        createBoxPaginateElement.setAttribute('id', 'box-paginate')
+
+        const createButtonLastPaginateElement = document.createElement('button')
+        const createButtonNextPaginateElement = document.createElement('button')
+
+        const createButtonLastPaginateText = document.createTextNode('<')
+        const createButtonNextPaginateText = document.createTextNode('>')
+
+        createButtonLastPaginateElement.classList = 'button-color-paginate'
+        createButtonLastPaginateElement.setAttribute('id', 'last')
+        createButtonNextPaginateElement.classList = 'button-color-paginate'
+        createButtonNextPaginateElement.setAttribute('id', 'next')
+
+        createButtonLastPaginateElement.appendChild(createButtonLastPaginateText)
+        createButtonNextPaginateElement.appendChild(createButtonNextPaginateText)
+
+        createBoxPaginateElement.appendChild(createButtonLastPaginateElement)
+        createBoxPaginateElement.appendChild(createButtonNextPaginateElement)
+
+        item.appendChild(createBoxPaginateElement)
+    } else {
+        const createTitleElement = document.createElement('h1')
+        const textTitleElement = document.createTextNode('Não há ONGs favoritas')
+
+        createTitleElement.classList = 'text-white text-weight-bold'
+
+        createTitleElement.appendChild(textTitleElement)
+
+
+
+        item.appendChild(createTitleElement)
+        
     }
-
-    // PAGINATE
-
-    const createBoxPaginateElement = document.createElement('div')
-    createBoxPaginateElement.classList = 'box-paginate mt-3'
-    createBoxPaginateElement.setAttribute('id', 'box-paginate')
-
-    const createButtonLastPaginateElement = document.createElement('button')
-    const createButtonNextPaginateElement = document.createElement('button')
-
-    const createButtonLastPaginateText = document.createTextNode('<')
-    const createButtonNextPaginateText = document.createTextNode('>')
-
-    createButtonLastPaginateElement.classList = 'button-color-paginate'
-    createButtonLastPaginateElement.setAttribute('id', 'last')
-    createButtonNextPaginateElement.classList = 'button-color-paginate'
-    createButtonNextPaginateElement.setAttribute('id', 'next')
-
-    createButtonLastPaginateElement.appendChild(createButtonLastPaginateText)
-    createButtonNextPaginateElement.appendChild(createButtonNextPaginateText)
-
-    createBoxPaginateElement.appendChild(createButtonLastPaginateElement)
-    createBoxPaginateElement.appendChild(createButtonNextPaginateElement)
-
-    item.appendChild(createBoxPaginateElement)
 
     function cut(string) {
         if (string[99] != undefined) {

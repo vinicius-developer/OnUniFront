@@ -6,8 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>OnUni</title>
     <link rel="stylesheet" href="../../lib/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../css/style.css">
-    <link rel="stylesheet" href="../css/styleInfo.css">
+    <link rel="stylesheet" href="css/styleOng.css">
+    <link rel="stylesheet" href="css/styleInfoOng.css">
 </head>
 
 <body>
@@ -33,12 +33,12 @@
             </div>
         </header>
         <section id="ong-content" class="box-content-ong">
+            <h1 class="text-center mb-3">Seu Perfil</h1>
             <article class="box-one mb-5 mb-sm-5 mb-lg-5">
                 <div class="box-potho-ong">
-
+                    <button id="changeImageModal" class="d-none"></button>
                 </div>
                 <div class="box-title">
-                    <h1></h1>
                 </div>
             </article>
             <article class="box-two mb-5">
@@ -77,26 +77,43 @@
         </footer>
     </main>
 
-    <!-- MODAL DE REPORT -->
+    <!-- MODAL MUDAR FOTO -->
 
-    <div id="reportModal" class="report-modal anulation">
+    <div id="changePhotoModal" class="d-none change-photo-modal">
         <div class="box-modal">
             <div class="box-header-model">
-                <h4 class="pb-4">Descreva o motivo</h4>
-                <button id="closeModal">X</button>
+                <button id="closePhotoModal">X</button>
+                <h3 class="pt-3">Escolha uma foto</h3>
             </div>
             <div class="box-content-model">
-                <textarea class="textarea-model" name="explicacao_report" id="explicacao_report" 
-                placeholder="Escreva aqui..." cols="30" rows="10"></textarea>
-                <p id="messageErrorModal"class="box-message-error"></p>
-                <button id="sendReport" class="mt-3 font-weight-bold text-white">Enviar</button>
+                <label for="photoModal" class="mt-3 label-photo-model"></label>
+                <input id="photoModal"type="file">
+                <p id="messageErrorModalPhoto"class="box-message-error mt-2"></p>
+                <button id="sendPhoto" class="mt-3 font-weight-bold text-white">Enviar</button>
             </div>
         </div>
     </div>
 
+    <!-- MUDAR NOME ONG -->
+ 
+    <div id="changeTitleModal" class="d-none change-title-modal">
+        <div class="box-modal">
+            <div class="box-header-model">
+                <button id="closeTitleModal">X</button>
+                <h3 class="pt-3">Insira o novo nome</h3>
+            </div>
+            <div class="box-content-model">
+                <label for="title"></label>
+                <input type="text" id="title" name='title' class="styleInput" placeholder="Insira aqui...">
+                <p id="messageErrorModalTitle"class="box-message-error mt-2"></p>
+                <button id="sendPhoto" class="mt-3 font-weight-bold text-white">Enviar</button>
+            </div>
+        </div>
+    </div>
+
+
     <script src="../js/session.js"></script>
     <script src="../../node_modules/axios/dist/axios.js"></script>
-    <script src="../js/infoOngTools.js"></script>
     <script src="js/myInfoOngRequest.js"></script>
 </body>
 
